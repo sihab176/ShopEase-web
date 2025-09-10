@@ -6,7 +6,8 @@ import Link from "next/link";
 import ProfileNav from "./ProfileNav";
 import Image from "next/image";
 import { FaCartArrowDown } from "react-icons/fa";
-
+// ShopEase-e-commerce
+// 3wxvuNCY3x7pY2MQ
 const Navbar = () => {
   const pathname = usePathname();
   const session = true;

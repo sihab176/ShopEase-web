@@ -12,41 +12,31 @@ export default function DashboardLayout({ children }) {
     <div className="flex h-screen bg-gray-100 text-black">
       
       {/* Sidebar for large screens */}
-      <aside className="hidden md:flex md:flex-col w-64 bg-[#b3dee2] shadow-lg">
-        <Link href="/">
-        <div className="p-4 text-2xl font-bold border-b flex items-center gap-2"><Image
-                    src="/logo.png"
-                    alt="logo"
-                    width={40}
-                    height={40}
-                    className="object-cover"
-                  /> <h1 className="text-sky-500 mt-1">MediLab</h1> </div>
+      <aside className="hidden md:flex md:flex-col w-64 bg-[#c7d6d5] shadow-lg">
+        <Link href="/" className="flex  items-center space-x-2 ml-5 mt-4 mb-8">
+          <Image
+            src="/shopping-bag.png"
+            alt="Company Logo"
+            width={40}
+            height={40}
+            className="object-contain"
+          />
+          <span className="text-xl font-bold text-gray-800">ShopEase</span>
         </Link>
         <nav className="flex-1 p-4 space-y-2">
           <Link
             href="/dashboard"
-            className={`block p-2 rounded hover:bg-gray-200 ${pathname === '/dashboard' ? 'bg-blue-300' : ''}`}
+            className={`block p-2 rounded hover:bg-gray-200 ${pathname === '/dashboard' ? 'border-r-4 md:border-r-[6px] bg-orange-600/10 border-orange-500/90' : ''}`}
           >
             Dashboard
           </Link>
           <Link
             href="/dashboard/add_by_seller"
-            className={`block p-2 rounded hover:bg-gray-200 ${pathname === '/dashboard/add_by_seller' ? 'bg-blue-300' : ''}`}
+            className={`block p-2 rounded hover:bg-gray-200 ${pathname === '/dashboard/add_by_seller' ? 'border-r-4 md:border-r-[6px] bg-orange-600/10 border-orange-500/90' : ''}`}
           >
             Add Product
           </Link>
-          {/* <Link
-            href="/Dashboard/PaymentHistory"
-            className={`block p-2 rounded hover:bg-gray-200 ${pathname === '/Dashboard/PaymentHistory' ? 'bg-blue-300' : ''}`}
-          >
-            Payments History
-          </Link>
-          <Link
-            href="/dashboard/settings"
-            className="block p-2 rounded hover:bg-gray-200"
-          >
-            Settings
-          </Link> */}
+
         </nav>
       </aside>
 

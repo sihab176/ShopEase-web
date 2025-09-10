@@ -8,11 +8,13 @@ export default function AddProduct() {
   const [formData, setFormData] = useState({
     name: "",
     price: "",
+    offerPrice: "",
     category: "",
     brand: "",
     description: "",
     stock: "",
-    image: null,
+    image: [],
+    seller_email: "shariyar2739@gmail.com",
   });
 
   const handleChange = (e) => {
@@ -36,7 +38,7 @@ export default function AddProduct() {
       alert("Please select at least one image!");
       return;
     }
-try {
+    try {
       // 🔥 সব ফাইল upload করতে Promise.all ব্যবহার করুন
       const uploadPromises = files
         .filter(Boolean) // null বাদ দিন
@@ -52,7 +54,8 @@ try {
             }
           );
           const data = await res.json();
-          if (!data.success) throw new Error(data.error?.message || "Upload failed");
+          if (!data.success)
+            throw new Error(data.error?.message || "Upload failed");
           return data.data.url;
         });
 
@@ -62,13 +65,15 @@ try {
       // final product data তৈরি করুন
       const finalData = {
         ...formData,
-        images: imageUrls,
+        image: imageUrls,
       };
 
       console.log("✅ Final Product Data:", finalData);
-
-      // এখন finalData আপনার backend এ পাঠাতে পারেন
-      // await fetch("/api/products", { method: "POST", body: JSON.stringify(finalData) })
+      const result = await fetch("http://localhost:3000/api/product", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(finalData),
+      });
 
       alert("✅ Product added successfully!");
     } catch (error) {
@@ -78,14 +83,8 @@ try {
   };
 
   return (
-    <section className="flex justify-center items-center py-10  min-h-screen">
-      <form
-        onSubmit={handleSubmit}
-        className=" rounded-2xl p-8 w-full max-w-4xl"
-      >
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
-          🚀 Add New Product
-        </h2>
+    <section className="flex justify-center items-center   min-h-screen">
+      <form onSubmit={handleSubmit} className=" rounded-2xl  w-full ">
         <div>
           <p className="text-base font-medium">Product Image</p>
           <div className="flex flex-wrap items-center gap-3 mt-2">
@@ -133,7 +132,7 @@ try {
               placeholder="Enter product name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-400 outline-none"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
               required
             />
           </div>
@@ -149,7 +148,7 @@ try {
               placeholder="Enter price"
               value={formData.price}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-400 outline-none"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
               required
             />
           </div>
@@ -162,9 +161,9 @@ try {
               type="number"
               name="offerPrice"
               placeholder="Enter price"
-              value={formData.price}
+              value={formData.offerPrice}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-400 outline-none"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
               required
             />
           </div>
@@ -178,7 +177,7 @@ try {
               name="category"
               value={formData.category}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-400 outline-none"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
               required
             >
               <option value="">Select category</option>
@@ -188,6 +187,9 @@ try {
               <option value="gaming">Gaming Device</option>
               <option value="watch">Watch</option>
               <option value="camera">Camera</option>
+              <option value="shoes">Shoes</option>
+              <option value="jeans">Jeans</option>
+              <option value="Tshirts">Tshirts</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -203,7 +205,7 @@ try {
               placeholder="Enter brand"
               value={formData.brand}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-400 outline-none"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
               required
             />
           </div>
@@ -219,7 +221,7 @@ try {
               placeholder="Enter stock quantity"
               value={formData.stock}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-400 outline-none"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
               required
             />
           </div>
@@ -236,7 +238,7 @@ try {
             value={formData.description}
             onChange={handleChange}
             rows="4"
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-400 outline-none"
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
             required
           />
         </div>
@@ -245,7 +247,7 @@ try {
         <div className="mt-8">
           <button
             type="submit"
-            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl shadow-lg transition duration-200"
+            className="w-full bg-[#d4a373] hover:bg-[#d1965b] text-white font-semibold py-3 rounded-xl shadow-lg transition duration-200"
           >
             ➕ Add Product
           </button>
