@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function AddProduct() {
   const imgbbApiKey = "1b9dc072b95ad90044546f449af37a13";
   const [files, setFiles] = useState([]);
-  console.log(files);
+  // console.log(files);
   const [formData, setFormData] = useState({
     name: "",
     price: "",
@@ -68,7 +68,7 @@ export default function AddProduct() {
         image: imageUrls,
       };
 
-      console.log("✅ Final Product Data:", finalData);
+      // console.log("✅ Final Product Data:", finalData);
       const result = await fetch("http://localhost:3000/api/product", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

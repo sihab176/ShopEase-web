@@ -1,27 +1,29 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaRegHeart, FaRegStar, FaStar } from "react-icons/fa";
 
-const Cards = () => {
+const Cards = ({ data }) => {
+  const { description, category, name, image, _id } = data || {};
   const rating = 4;
   return (
-    <div className="flex flex-col  cursor-pointer">
-      <div className="cursor-pointer group relative bg-gray-500/10 rounded-lg w-full h-52 flex items-center justify-center">
+    <div key={data._id} className="flex flex-col   shadow p-3 rounded">
+      <div className=" group relative  rounded-lg w-full h-72 flex items-center justify-center">
         <Image
-          src={`/shopping-bag.png`}
+          src={`${image[0]}`}
           alt="name"
-          className="group-hover:scale-105 transition object-cover w-4/5 h-4/5 md:w-full md:h-full"
-          width={800}
-          height={800}
+          className="group-hover:scale-105 transition object-cover w-4/5 h-4/5 md:w-full md:h-full "
+          width={400}
+          height={400}
         />
         <button className="absolute top-2 right-2 bg-white p-2 rounded-full shadow-md">
           <FaRegHeart className="text-red-600 h-4 w-4" />
         </button>
       </div>
 
-      <p className="md:text-base font-medium pt-2 w-full truncate">.name</p>
+      <p className="md:text-base font-medium pt-2 w-full truncate">{name}</p>
       <p className="w-full text-xs text-gray-500/70 max-sm:hidden truncate">
-        discriptjion
+        {description}
       </p>
       <div className="flex items-center gap-2">
         <p className="text-xs">{4.0}</p>
@@ -37,10 +39,12 @@ const Cards = () => {
       </div>
 
       <div className="flex items-end justify-between w-full mt-1">
-        <p className="text-base font-medium">jljlsjljsjl</p>
-        <button className=" max-sm:hidden px-4 py-1.5 text-gray-500 border border-gray-500/20 rounded-full text-xs hover:bg-slate-50 transition">
-          Buy now
-        </button>
+        <p className="text-base font-medium">{category}</p>
+        <Link href={`productDetails/${_id}`}>
+          <button className=" cursor-pointer max-sm:hidden px-4 py-1.5 text-gray-500 border border-gray-500/20 rounded-full text-xs hover:bg-slate-50 transition">
+            Buy now
+          </button>
+        </Link>
       </div>
     </div>
   );
