@@ -10,7 +10,7 @@ import { FaCartArrowDown } from "react-icons/fa";
 // 3wxvuNCY3x7pY2MQ
 const Navbar = () => {
   const pathname = usePathname();
-  const session = true;
+  const session = false;
 
   return (
     <nav className="w-full bg-white shadow sticky top-0 z-20">
@@ -59,7 +59,7 @@ const Navbar = () => {
               About
             </Link>
           </li>
-          {session && (
+          {!session && (
             <li>
               <Link
                 href="/dashboard"
