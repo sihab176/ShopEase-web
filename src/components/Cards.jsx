@@ -7,7 +7,7 @@ const Cards = ({ data }) => {
   const { description, category, name, image, _id } = data || {};
   const rating = 4;
   return (
-    <div key={data._id} className="flex flex-col   shadow p-3 rounded">
+    <div key={data._id} className="flex flex-col   shadow p-3 rounded mx-4">
       <div className=" group relative  rounded-lg w-full h-72 flex items-center justify-center">
         <Image
           src={`${image[0]}`}
@@ -22,7 +22,7 @@ const Cards = ({ data }) => {
       </div>
 
       <p className="md:text-base font-medium pt-2 w-full truncate">{name}</p>
-      <p className="w-full text-xs text-gray-500/70 max-sm:hidden truncate">
+      <p className="w-full text-xs text-gray-500/70  truncate">
         {description}
       </p>
       <div className="flex items-center gap-2">
@@ -41,7 +41,7 @@ const Cards = ({ data }) => {
       <div className="flex items-end justify-between w-full mt-1">
         <p className="text-base font-medium">{category}</p>
         <Link href={`productDetails/${_id}`}>
-          <button className=" cursor-pointer max-sm:hidden px-4 py-1.5 text-gray-500 border border-gray-500/20 rounded-full text-xs hover:bg-slate-50 transition">
+          <button className=" cursor-pointer  px-4 py-1.5 text-gray-500 border border-gray-500/20 rounded-full text-xs hover:bg-slate-50 transition">
             Buy now
           </button>
         </Link>

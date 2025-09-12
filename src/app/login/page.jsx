@@ -3,6 +3,7 @@ import React from "react";
 import LoginForm from "./components/LoginForm";
 import Link from "next/link";
 import SocialLogin from "./components/SocialLogin";
+import Image from "next/image";
 
 const LoginPage = () => {
   return (
@@ -29,11 +30,12 @@ const LoginPage = () => {
           </div>
         </div>
         <div className="col-span-1 lg:col-span-8">
-          <img
-            src="https://images.unsplash.com/photo-1531548731165-c6ae86ff6491?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
-            alt="3 women looking at a laptop"
+          <Image
+            src="/loginImage.jpeg"
+            alt="login image"
+            width={800}
+            height={800}
             className="object-cover w-full h-64 min-h-full bg-gray-100"
-            loading="lazy"
           />
         </div>
       </section>

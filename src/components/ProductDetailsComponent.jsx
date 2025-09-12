@@ -1,9 +1,26 @@
 "use client";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const ProductDetailsComponent = ({ productData }) => {
   const [mainImage, setMainImage] = useState(null);
+  const { data: session, status } = useSession();
+  console.log("status", status);
+
+  const addToCart = (id) => {
+    console.log("id", id);
+    toast.success("successfully add to cart");
+    const CartInfo = {
+      product_name: productData?.name,
+      product_image: productData?.image[0],
+      product_price: productData?.offerPrice,
+      product_category: productData?.category,
+      user_email: session?.user?.email,
+      user_name: session?.user?.name,
+    };
+  };
 
   return (
     <div>
@@ -86,8 +103,13 @@ const ProductDetailsComponent = ({ productData }) => {
 
             <div className="flex items-center mt-10 gap-4">
               <button
+                disabled={status !== "authenticated"}
                 onClick={() => addToCart(productData._id)}
-                className="w-full py-3.5 bg-gray-100 text-gray-800/80 hover:bg-gray-200 transition"
+                className={`w-full py-3.5  text-gray-800/80  transition ${
+                  status === "authenticated"
+                    ? "bg-green-200 hover:bg-green-300 active:bg-green-800"
+                    : "bg-gray-400 disabled:cursor-pointer"
+                }}`}
               >
                 Add to Cart
               </button>
@@ -103,18 +125,6 @@ const ProductDetailsComponent = ({ productData }) => {
             </div>
           </div>
         </div>
-        {/* <div className="flex flex-col items-center">
-                <div className="flex flex-col items-center mb-4 mt-16">
-                    <p className="text-3xl font-medium">Featured <span className="font-medium text-orange-600">Products</span></p>
-                    <div className="w-28 h-0.5 bg-orange-600 mt-2"></div>
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-6 pb-14 w-full">
-                    {products.slice(0, 5).map((product, index) => <ProductCard key={index} product={product} />)}
-                </div>
-                <button className="px-8 py-2 mb-16 border rounded text-gray-500/70 hover:bg-slate-50/90 transition">
-                    See more
-                </button>
-            </div> */}
       </div>
     </div>
   );

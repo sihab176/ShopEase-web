@@ -10,7 +10,8 @@ import { FaCartArrowDown } from "react-icons/fa";
 // 3wxvuNCY3x7pY2MQ
 const Navbar = () => {
   const pathname = usePathname();
-  const session = false;
+  const { data: session, status } = useSession();
+  // console.log("session ===========>", session);
 
   return (
     <nav className="w-full bg-white shadow sticky top-0 z-20">
@@ -59,7 +60,7 @@ const Navbar = () => {
               About
             </Link>
           </li>
-          {!session && (
+          {session && (
             <li>
               <Link
                 href="/dashboard"
@@ -76,7 +77,7 @@ const Navbar = () => {
         {/* Right Side: Auth Buttons / User */}
         <div className="flex items-center gap-4">
           {session ? (
-            <ProfileNav /> // 👈 avatar + dropdown here
+            <ProfileNav session={session}/> // 👈 avatar + dropdown here
           ) : (
             <Link
               href="/login"

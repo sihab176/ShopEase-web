@@ -3,6 +3,7 @@ import React from "react";
 import { signIn } from "next-auth/react";
 
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -19,16 +20,11 @@ const LoginForm = () => {
     });
 
     if (result.error) {
-      alert("authentication field");
+      toast.error("authentication field");
     } else {
       router.push("/");
       form.reset();
-      // Swal.fire({
-      //   icon: "success",
-      //   title: "Your work has been saved",
-      //   showConfirmButton: false,
-      //   timer: 1500,
-      // });
+      toast.success("Successfully Login")
     }
   };
 
@@ -60,9 +56,9 @@ const LoginForm = () => {
       </label>
       <div className=" items-center justify-between">
         <label className="flex items-center">
-          <input type="checkbox" className="form-checkbox" />
+          <input required type="checkbox" className="form-checkbox" />
           <span className="block ml-2 text-xs font-medium text-gray-700 cursor-pointer">
-            Remember me
+            i agree to the terms and conditions
           </span>
         </label>
         <button className="bg-amber-300 hover:bg-amber-400 w-full h-11 text-xl font-semibold mt-5">Login</button>

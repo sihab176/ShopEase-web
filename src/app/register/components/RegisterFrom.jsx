@@ -1,8 +1,9 @@
 "use client";
-// import { RegisterUser } from "@/app/actions/auth/RegisterUser";
+import { registerUser } from "@/app/actions/auth/registerUser";
 import { signIn } from "next-auth/react";
 
 import React from "react";
+import toast from "react-hot-toast";
 
 const RegisterFrom = () => {
   const handleSubmit =async (e) => {
@@ -12,9 +13,10 @@ const RegisterFrom = () => {
     const email = from.email.value;
     const password = from.password.value;
 
-    // const res= await  RegisterUser({ name, email, password });
+    const res= await  registerUser({ name, email, password });
 
     if(res.success){
+      toast.success("successfully sign in")
       await signIn("credentials",{
         redirect: true,
         email,
@@ -22,6 +24,7 @@ const RegisterFrom = () => {
         callbackUrl:"/"
       })
     }
+    console.log("res ============>", res);
   };
 
   return (
@@ -66,9 +69,9 @@ const RegisterFrom = () => {
       </label>
       <div className="justify-between">
         <label className="flex items-center">
-          <input type="checkbox" className="form-checkbox" />
+          <input required type="checkbox" className="form-checkbox" />
           <span className="block ml-2 text-xs font-medium text-gray-700 cursor-pointer">
-            Remember me
+            i agree to the terms and conditions
           </span>
         </label>
         <input type="submit" className="btn bg-amber-300 hover:bg-amber-400 w-full mt-5 " value="signup" />

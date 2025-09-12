@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import RegisterFrom from "./components/RegisterFrom";
 import SocialLogin from "../login/components/SocialLogin";
+import Image from "next/image";
 
 const registerPage = () => {
   return (
@@ -22,7 +23,7 @@ const registerPage = () => {
                 href="/login"
                 className="text-purple-700 hover:text-black border-b border-purple-700 ml-2"
               >
-                 login your account
+                login your account
               </Link>
             </p>
 
@@ -32,11 +33,12 @@ const registerPage = () => {
           </div>
         </div>
         <div className="col-span-1 lg:col-span-8">
-          <img
-            src="https://images.unsplash.com/photo-1531548731165-c6ae86ff6491?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
-            alt="3 women looking at a laptop"
+          <Image
+            src="/loginImage.jpeg"
+            alt="register image"
+            width={800}
+            height={800}
             className="object-cover w-full h-64 min-h-full bg-gray-100"
-            loading="lazy"
           />
         </div>
       </section>
