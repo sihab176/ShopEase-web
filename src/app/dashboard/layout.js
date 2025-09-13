@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-
+import { MdDashboard } from "react-icons/md";
 export default function DashboardLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname= usePathname()
@@ -26,9 +26,9 @@ export default function DashboardLayout({ children }) {
         <nav className="flex-1 p-4 space-y-2">
           <Link
             href="/dashboard"
-            className={`block p-2 rounded hover:bg-gray-200 ${pathname === '/dashboard' ? 'border-r-4 md:border-r-[6px] bg-orange-600/10 border-orange-500/90' : ''}`}
+            className={` p-2 rounded hover:bg-gray-200 flex items-center ${pathname === '/dashboard' ? 'border-r-4 md:border-r-[6px] bg-orange-600/10 border-orange-500/90' : ''}`}
           >
-            Dashboard
+           <span><MdDashboard /></span> Dashboard
           </Link>
           <Link
             href="/dashboard/add_by_seller"

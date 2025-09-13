@@ -42,12 +42,12 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="/menu"
+              href="/allProducts"
               className={`font-semibold transition-colors hover:text-primary ${
-                pathname === "/menu" ? "text-primary" : "text-gray-700"
+                pathname === "/allProducts" ? "text-primary" : "text-gray-700"
               }`}
             >
-              All Menu
+              All Products
             </Link>
           </li>
           <li>

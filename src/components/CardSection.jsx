@@ -16,7 +16,7 @@ const CardSection = () => {
   // console.log(products);
   return (
     <div>
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 my-20">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 my-20 mx-4">
         {products.map((product) => (
           <Cards key={product._id} data={product} />
         ))}

@@ -1,6 +1,7 @@
 "use client"
 import Banner from "@/components/Banner";
 import CardSection from "@/components/CardSection";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 
@@ -12,7 +13,7 @@ export default function Home() {
     <Banner/>
     <CardSection/>
 </section>
-  this is home page 
+  <Footer/>
  </section>
   );
 }

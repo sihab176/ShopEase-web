@@ -83,7 +83,7 @@ export default function AddProduct() {
   };
 
   return (
-    <section className="flex justify-center items-center   min-h-screen">
+    <section className="flex justify-center items-center   min-h-screen bg-white p-4">
       <form onSubmit={handleSubmit} className=" rounded-2xl  w-full ">
         <div>
           <p className="text-base font-medium">Product Image</p>
@@ -132,7 +132,7 @@ export default function AddProduct() {
               placeholder="Enter product name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
+              className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
               required
             />
           </div>
@@ -148,7 +148,7 @@ export default function AddProduct() {
               placeholder="Enter price"
               value={formData.price}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
+              className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
               required
             />
           </div>
@@ -163,7 +163,7 @@ export default function AddProduct() {
               placeholder="Enter price"
               value={formData.offerPrice}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
+              className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
               required
             />
           </div>
@@ -177,7 +177,7 @@ export default function AddProduct() {
               name="category"
               value={formData.category}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
+              className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
               required
             >
               <option value="">Select category</option>
@@ -205,7 +205,7 @@ export default function AddProduct() {
               placeholder="Enter brand"
               value={formData.brand}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
+              className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
               required
             />
           </div>
@@ -221,7 +221,7 @@ export default function AddProduct() {
               placeholder="Enter stock quantity"
               value={formData.stock}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
+              className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
               required
             />
           </div>
@@ -238,7 +238,7 @@ export default function AddProduct() {
             value={formData.description}
             onChange={handleChange}
             rows="4"
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
+            className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
             required
           />
         </div>
@@ -247,7 +247,7 @@ export default function AddProduct() {
         <div className="mt-8">
           <button
             type="submit"
-            className="w-full bg-[#d4a373] hover:bg-[#d1965b] text-white font-semibold py-3 rounded-xl shadow-lg transition duration-200"
+            className="w-full bg-[#d4a373] hover:bg-[#d1965b] text-white font-semibold py-3  shadow-lg transition duration-200"
           >
             ➕ Add Product
           </button>
