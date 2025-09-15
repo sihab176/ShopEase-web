@@ -59,13 +59,14 @@ const AllProductPage = () => {
           <div>
             <h2 className="font-semibold text-lg mb-3">Categories</h2>
             <ul className="space-y-2 text-gray-700">
-              <li className="cursor-pointer hover:text-red-500">Electronics</li>
-              <li className="cursor-pointer hover:text-red-500">Fashion</li>
-              <li className="cursor-pointer hover:text-red-500">Groceries</li>
-              <li className="cursor-pointer hover:text-red-500">
-                Home & Living
-              </li>
-              <li className="cursor-pointer hover:text-red-500">Sports</li>
+              <li className="cursor-pointer hover:text-red-500">Bluetooth</li>
+              <li className="cursor-pointer hover:text-red-500">Camera</li>
+              <li className="cursor-pointer hover:text-red-500">Laptop</li>
+              <li className="cursor-pointer hover:text-red-500">Watch</li>
+              <li className="cursor-pointer hover:text-red-500">Phone</li>
+              <li className="cursor-pointer hover:text-red-500">Jeans</li>
+              <li className="cursor-pointer hover:text-red-500">Shoes</li>
+              <li className="cursor-pointer hover:text-red-500">T-shirts</li>
             </ul>
           </div>
 
@@ -106,7 +107,7 @@ const AllProductPage = () => {
           {/* Sort By */}
           <div className="flex justify-end items-center gap-2  mt-6">
             <h2 className="font-semibold text-lg ">Sort By :</h2>
-            <select className="w-[150px] p-2 border-b ">
+            <select className="w-[150px] p-2 border border-amber-300 ">
               <option value="latest">Latest</option>
               <option value="low-to-high">Price: Low to High</option>
               <option value="high-to-low">Price: High to Low</option>

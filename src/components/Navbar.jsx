@@ -77,7 +77,7 @@ const Navbar = () => {
         {/* Right Side: Auth Buttons / User */}
         <div className="flex items-center gap-4">
           {session ? (
-            <ProfileNav session={session}/> // 👈 avatar + dropdown here
+            <ProfileNav session={session} /> // 👈 avatar + dropdown here
           ) : (
             <Link
               href="/login"
@@ -113,15 +113,17 @@ const Navbar = () => {
             </div>
             <div
               tabIndex={0}
-              className="card card-compact dropdown-content bg-base-100 z-1 mt-3 w-52 shadow"
+              className="card card-compact dropdown-content bg-base-100 z-1 mt-3 w-44 shadow"
             >
               <div className="card-body">
                 <span className="text-lg font-bold">8 Items</span>
                 <span className="text-info">Subtotal: $999</span>
-                <div className="card-actions">
-                  <button className="btn btn-primary btn-block">
-                    View cart
-                  </button>
+                <div className=" w-full">
+                  <Link href="/my-cart">
+                    <button className="btn bg-orange-500 w-full ">
+                      View cart
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

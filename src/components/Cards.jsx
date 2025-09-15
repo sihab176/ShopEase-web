@@ -8,7 +8,7 @@ const Cards = ({ data }) => {
   const rating = 4;
   return (
     <div key={data._id} className="flex flex-col   shadow p-3 rounded ">
-      <div className=" group relative  rounded-lg w-full h-72 flex items-center justify-center">
+      <div className=" group relative  rounded-lg w-full h-64 flex items-center justify-center">
         <Image
           src={`${image[0]}`}
           alt="name"
@@ -16,7 +16,7 @@ const Cards = ({ data }) => {
           width={400}
           height={400}
         />
-        <button className="absolute top-2 right-2 bg-white p-2 rounded-full shadow-md">
+        <button className="absolute top-0 right-0 bg-white p-2 rounded-full shadow-md">
           <FaRegHeart className="text-red-600 h-4 w-4" />
         </button>
       </div>
@@ -30,9 +30,9 @@ const Cards = ({ data }) => {
         <div className="flex items-center gap-0.5">
           {Array.from({ length: 5 }).map((_, index) =>
             index < rating ? (
-              <FaStar key={index} className="text-yellow-500 h-4 w-4" />
+              <FaStar key={index} className="text-yellow-500 h-3 w-3" />
             ) : (
-              <FaRegStar key={index} className="text-gray-400 h-4 w-4" />
+              <FaRegStar key={index} className="text-gray-400 h-3 w-3" />
             )
           )}
         </div>

@@ -9,9 +9,10 @@ const ProductDetailsComponent = ({ productData }) => {
   const { data: session, status } = useSession();
   console.log("status", status);
 
-  const addToCart = (id) => {
+  // handel submit =================>
+  const addToCart = async (id) => {
     console.log("id", id);
-    toast.success("successfully add to cart");
+
     const CartInfo = {
       product_name: productData?.name,
       product_image: productData?.image[0],
@@ -20,6 +21,23 @@ const ProductDetailsComponent = ({ productData }) => {
       user_email: session?.user?.email,
       user_name: session?.user?.name,
     };
+
+    console.log("cart info", CartInfo);
+
+    const res = await fetch("http://localhost:3000/api/addToCart", {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify(CartInfo),
+    });
+    const data = await res.json();
+    console.log("DATA============>", data);
+    if (data) {
+      toast.success("Successfully added to cart");
+    } else {
+      toast.error("Failed to add to cart");
+    }
   };
 
   return (
