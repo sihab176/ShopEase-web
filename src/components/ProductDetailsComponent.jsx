@@ -20,6 +20,7 @@ const ProductDetailsComponent = ({ productData }) => {
       product_category: productData?.category,
       user_email: session?.user?.email,
       user_name: session?.user?.name,
+      quantity: 1,
     };
 
     console.log("cart info", CartInfo);

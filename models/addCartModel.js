@@ -31,6 +31,10 @@ const addToCartSchema= new mongoose.Schema({
       required: true,
       default: ""
     },
+    quantity:{
+      type: Number ,
+      required: true
+    },
 }
 ,
 {timestamps:true}
