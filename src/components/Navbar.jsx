@@ -31,7 +31,7 @@ const Navbar = () => {
   }, [session?.user?.email]);
 
   return (
-    <nav className="w-full bg-white shadow sticky top-0 z-20">
+    <nav className="w-full bg-[#eff1ed] shadow sticky top-0 z-20">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
         {/* Logo and Brand Name */}
         <Link href="/" className="flex items-center space-x-2">
@@ -42,7 +42,7 @@ const Navbar = () => {
             height={40}
             className="object-contain"
           />
-          <span className="text-xl font-bold text-gray-800">ShopEase</span>
+          <h1 className="text-xl font-bold text-gray-800"><span className="text-[#ffd60a]">Shop</span>Ease</h1>
         </Link>
 
         {/* Navigation Links */}
@@ -135,17 +135,6 @@ const Navbar = () => {
                 tabIndex={0}
                 className="card card-compact dropdown-content bg-base-100 z-1 mt-3 w-44 shadow"
               >
-                {/* <div className="card-body">
-                <span className="text-lg font-bold">8 Items</span>
-                <span className="text-info">Subtotal: $999</span>
-                <div className=" w-full">
-                  <Link href="/my-cart">
-                    <button className="btn bg-orange-600 hover:bg-orange-700 w-full text-white">
-                      View cart
-                    </button>
-                  </Link>
-                </div>
-              </div> */}
               </div>
             </div>
           </Link>

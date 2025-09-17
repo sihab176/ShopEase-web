@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import { useSession } from "next-auth/react";
 import OrderSummary from "@/components/OrderSummary";
+import toast from "react-hot-toast";
+import Link from "next/link";
 
 const MyCart = () => {
   const { data: session, status } = useSession();
@@ -61,8 +63,22 @@ const MyCart = () => {
     );
   };
 
-  const removeItem = (id) => {
-    setProducts((prev) => prev.filter((item) => item._id !== id));
+  const removeItem = async (id) => {
+    const res = await fetch(
+      `http://localhost:3000/api/addToCart/deletItem/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+    const data = await res.json();
+    if (res.ok) {
+      toast.success("Item removed");
+
+      // ✅ UI state থেকেও remove করো
+      setProducts((prev) => prev.filter((item) => item._id !== id));
+    } else {
+      toast.error(data.message || "Failed to remove item");
+    }
   };
 
   return (
@@ -174,9 +190,11 @@ const MyCart = () => {
 
                 {/* Continue Shopping */}
                 <div className="mt-6">
-                  <button className="text-orange-500 hover:underline flex items-center gap-1">
+                 <Link href={"/allProducts"}>
+                                   <button className="text-orange-500 hover:underline flex items-center gap-1">
                     &larr; Continue Shopping
                   </button>
+                 </Link>
                 </div>
               </div>
             </div>

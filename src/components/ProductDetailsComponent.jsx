@@ -1,10 +1,12 @@
 "use client";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const ProductDetailsComponent = ({ productData }) => {
+  const router = useRouter();
   const [mainImage, setMainImage] = useState(null);
   const { data: session, status } = useSession();
   console.log("status", status);
@@ -33,7 +35,7 @@ const ProductDetailsComponent = ({ productData }) => {
       body: JSON.stringify(CartInfo),
     });
     const data = await res.json();
-    console.log("DATA============>", data);
+    // console.log("DATA============>", data);
     if (data) {
       toast.success("Successfully added to cart");
     } else {
@@ -135,7 +137,7 @@ const ProductDetailsComponent = ({ productData }) => {
               <button
                 onClick={() => {
                   addToCart(productData._id);
-                  router.push("/cart");
+                  router.push("/my-cart");
                 }}
                 className="w-full py-3.5 bg-orange-500 text-white hover:bg-orange-600 transition"
               >

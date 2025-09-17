@@ -2,115 +2,125 @@ import Image from "next/image";
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-
+import { FaFacebook, FaTwitter, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { TiShoppingCart } from "react-icons/ti";
 const Banner = () => {
   const bannerInfo = [
     {
       id: 1,
-      title: "Experience Pure Sound - Your Perfect Headphones Awaits!",
-      offer: "Limited Time Offer 30% Off",
-      buttonText1: "Buy now",
-      buttonText2: "Find more",
+
       img: "/bose_headphone_image.png",
     },
 
     {
       id: 3,
-      title: "Power Meets Elegance - Apple MacBook Pro is Here for you!",
-      offer: "Exclusive Deal 40% Off",
-      buttonText1: "Order Now",
-      buttonText2: "Learn More",
-      img: "/asus_laptop_image.png",
+
+      img: "/headPhone-removebg-preview.png",
     },
     {
       id: 2,
-      title: "Next-Level Gaming Starts Here - Discover PlayStation 5 Today!",
-      offer: "Hurry up only few lefts!",
-      buttonText1: "Shop Now",
-      buttonText2: "Explore Deals",
-      img: "/header_playstation_image.png",
+
+      img: "/show-removebg-preview.png",
     },
   ];
   return (
-    // <section className="bg-sky-100 px-10 py-8">
-    //   <section className="lg:flex justify-between md:flex-col-reverse">
-    //     <div className="space-y-4">
-    //       <h4 className="text-orange-400">this is 20 % discount</h4>
-    //       <h1 className="text-6xl font-bold">
-    //         Lorem ipsum dolor sit amet consectetur <br />
-    //         adipisicing elit.{" "}
-    //       </h1>
-    //       <p className="text-gray-600">
-    //         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga totam
-    //         unde porro accusamus distinctio delectus numquam minus hic labore
-    //         obcaecati.
-    //       </p>
-    //       <div className="flex gap-4 items-center">
-    //         <button className="btn">View All</button>
-    //         <button className="btn">Shop All</button>
-    //       </div>
-    //     </div>
-    //     <div>
-    //       <Image
-    //         src="/shopping-bag.png"
-    //         alt="Company Logo"
-    //         width={500}
-    //         height={5000}
-    //         className="object-contain"
-    //       />
-    //     </div>
-    //   </section>
-    // </section>
-    <section className="bg-[#c7d6d5] rounded">
-      <Carousel
-        autoPlay={true}
-        infiniteLoop={true}
-        showThumbs={false}
-        showArrows={false}
-        showStatus={false}
-      >
-        {bannerInfo.map((element) => (
-          <section className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 px-6 md:px-20 py-10">
-            {/* Text Content */}
-            <div className="space-y-1 text-center lg:text-left max-w-2xl">
-              <h4 className="text-orange-500 font-semibold text-lg">
-                🎉 {element.offer}
-              </h4>
-              <h1 className="max-w-lg md:text-4xl  text-2xl font-bold">
-                {element?.title}
-              </h1>
-              <p
-                className="text-gray-600 text-base md:text-lg mt-6
-          "
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-                totam unde porro accusamus distinctio delectus numquam minus hic
-                labore obcaecati.
-              </p>
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-8">
-                <button className="px-6 py-3 bg-orange-500 text-white rounded-xl shadow hover:bg-orange-600 transition">
-                  View All
-                </button>
-                <button className="px-6 py-3 bg-white border border-orange-500 text-orange-500 rounded-xl shadow hover:bg-orange-100 transition">
-                  Shop All
-                </button>
+    <>
+      <section className="bg-yellow-300">
+        <Carousel
+          autoPlay={true}
+          infiniteLoop={true}
+          showThumbs={false}
+          showArrows={false}
+          showStatus={false}
+        >
+          {bannerInfo.map((item) => (
+            <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
+              <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6 px-5">
+                {/* LEFT - promo text */}
+                <div className="flex flex-col items-start space-y-4 relative">
+                  <div className="absolute top-[-90px]  flex items-center">
+                    <TiShoppingCart className="text-5xl" />
+                    <span className="text-2xl text-white">ONLINE SHOPE</span>
+                  </div>
+                  <span className="text-sm font-semibold uppercase tracking-wide">
+                    For Online Order
+                  </span>
+
+                  <h2 className="text-4xl md:text-5xl font-extrabold leading-none">
+                    30% <span className="text-black/90">OFF</span>
+                  </h2>
+
+                  <p className="text-sm text-gray-800 max-w-[18rem] text-start">
+                    Limited time — grab the latest styles while stock lasts.
+                  </p>
+
+                  <a
+                    href="#"
+                    className="mt-3 inline-block bg-black text-white px-5 py-2 rounded-md font-medium shadow hover:opacity-95 transition"
+                  >
+                    Shop Now
+                  </a>
+                </div>
+
+                {/* CENTER - image with circular backdrop + pedestal */}
+                <div className="flex justify-center">
+                  <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-end justify-center">
+                    {/* circular backdrop */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white/85 shadow-2xl"></div>
+                    </div>
+
+                    {/* pedestal / show-stand */}
+                    <div className="absolute bottom-6 w-52 md:w-64 h-6 md:h-8 bg-white rounded-full shadow-lg" />
+
+                    {/* product image (slightly raised) */}
+                    <div className="relative z-10 -translate-y-6 md:-translate-y-8">
+                      {/* Put your image in public/images/product.png */}
+                      <Image
+                        src={item?.img}
+                        alt="Product"
+                        width={300}
+                        height={300}
+                        className="object-contain -rotate-2 mb-6"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* RIGHT - big headline + CTA */}
+                <div className="flex flex-col items-start md:items-end text-left md:text-right space-y-4 relative">
+                  <div className="absolute top-[-50px] flex space-x-4 mt-4 text-xl text-black">
+                    <FaFacebook className="cursor-pointer hover:text-gray-700" />
+                    <FaTwitter className="cursor-pointer hover:text-gray-700" />
+                    <FaInstagram className="cursor-pointer hover:text-gray-700" />
+                    <FaWhatsapp className="cursor-pointer hover:text-gray-700" />
+                  </div>
+                  <p className="text-3xl text-gray-500 uppercase tracking-wide ">
+                    New Arrivals
+                  </p>
+
+                  <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+                    JUST FOR <span className="italic text-black/90">you</span>
+                  </h1>
+
+                  <p className="max-w-[16rem] text-gray-800">
+                    Fresh drops — curated styles for you. Free shipping on
+                    orders over $50.
+                  </p>
+
+                  <a
+                    href="#"
+                    className="mt-3 inline-block bg-black text-white px-3 py-1  font-medium shadow hover:opacity-95 transition"
+                  >
+                    www.yoursite.com
+                  </a>
+                </div>
               </div>
             </div>
-
-            {/* Image */}
-            <div className="flex justify-center lg:justify-end">
-              <Image
-                src={element?.img}
-                alt="Discount Banner"
-                width={300}
-                height={300}
-                className="object-contain w-72 md:w-96 lg:w-[300px]"
-              />
-            </div>
-          </section>
-        ))}
-      </Carousel>
-    </section>
+          ))}
+        </Carousel>
+      </section>
+    </>
   );
 };
 
