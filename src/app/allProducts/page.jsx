@@ -218,11 +218,11 @@ const AllProductPage = () => {
           <div>
             <h2 className="font-semibold text-lg mb-3">Categories</h2>
             <ul className="space-y-2 text-gray-700">
-              {["Bluetooth", "Camera", "Laptop", "Watch", "Phone", "Jeans", "Shoes", "T-shirts"].map((cat) => (
+              {["bluetooth", "camera", "laptop", "watch", "phone", "jeans", "shoes", "Tshirts"].map((cat) => (
                 <li
                   key={cat}
-                  className={`cursor-pointer hover:text-red-500 ${
-                    category === cat ? "font-bold text-red-500" : ""
+                  className={`cursor-pointer hover:text-yellow-400 ${
+                    category === cat ? "font-bold text-yellow-500" : ""
                   }`}
                   onClick={() => setCategory(category === cat ? "" : cat)}
                 >

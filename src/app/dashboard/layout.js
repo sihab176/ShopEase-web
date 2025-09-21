@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { MdDashboard } from "react-icons/md";
+import { MdDashboard, MdLibraryAdd } from "react-icons/md";
 export default function DashboardLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname= usePathname()
@@ -12,8 +12,8 @@ export default function DashboardLayout({ children }) {
     <div className="flex h-screen bg-gray-100 text-black">
       
       {/* Sidebar for large screens */}
-      <aside className="hidden md:flex md:flex-col w-64 bg-[#c7d6d5] shadow-lg">
-        <Link href="/" className="flex  items-center space-x-2 ml-5 mt-4 mb-8">
+      <aside className="hidden md:flex md:flex-col w-64 bg-[#042a2b] shadow-lg text-white">
+        <Link href="/" className="flex  items-center space-x-2 pl-11 py-11 bg-[#0b5255]">
           <Image
             src="/shopping-bag.png"
             alt="Company Logo"
@@ -21,20 +21,21 @@ export default function DashboardLayout({ children }) {
             height={40}
             className="object-contain"
           />
-          <span className="text-xl font-bold text-gray-800">ShopEase</span>
+          <span className="text-xl font-bold ">ShopEase</span>
         </Link>
         <nav className="flex-1 p-4 space-y-2">
           <Link
             href="/dashboard"
-            className={` p-2 rounded hover:bg-gray-200 flex items-center ${pathname === '/dashboard' ? 'border-r-4 md:border-r-[6px] bg-orange-600/10 border-orange-500/90' : ''}`}
+            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard' ? 'border-r-4 md:border-r-[6px] bg-[#036666] border-orange-500/90' : ''}`}
           >
-           <span><MdDashboard /></span> Dashboard
+           <span><MdDashboard size={22}/></span> Dashboard
           </Link>
           <Link
             href="/dashboard/add_by_seller"
-            className={`block p-2 rounded hover:bg-gray-200 ${pathname === '/dashboard/add_by_seller' ? 'border-r-4 md:border-r-[6px] bg-orange-600/10 border-orange-500/90' : ''}`}
+            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/add_by_seller' ? 'border-r-4 md:border-r-[6px] bg-[#036666] border-orange-500/90' : ''}`}
           >
-            Add Product
+            <span><MdLibraryAdd size={22}/>
+             </span> Add Product
           </Link>
 
         </nav>
@@ -42,7 +43,7 @@ export default function DashboardLayout({ children }) {
 
       {/* Mobile sidebar */}
       <div
-        className={`fixed inset-0 bg-black/20 bg-opacity-40 z-40 md:hidden transition-opacity ${
+        className={`fixed inset-0 bg-black/20 bg-opacity-40 z-40 md:hidden transition-opacity  ${
           sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setSidebarOpen(false)}
@@ -55,35 +56,33 @@ export default function DashboardLayout({ children }) {
         <div className="p-4 text-2xl font-bold border-b flex justify-between items-center">
           <Link href="/">
         <div className="p-2 text-2xl font-bold flex items-center gap-2">
-            <Image
-                    src="/logo.png"
-                    alt="logo"
-                    width={40}
-                    height={40}
-                    className="object-cover"
-                  /> <h1 className="text-sky-500 mt-1">MediLab</h1> </div>
+          <Image
+            src="/shopping-bag.png"
+            alt="Company Logo"
+            width={40}
+            height={40}
+            className="object-contain"
+          />
+          <span className="text-xl font-bold ">ShopEase</span>
+          </div>
         </Link>
           <button onClick={() => setSidebarOpen(false)}>✕</button>
         </div>
-        <nav className="p-4 space-y-2">
+        <nav className="flex-1 p-4 space-y-2">
           <Link
             href="/dashboard"
-            className="block p-2 rounded hover:bg-gray-200"
+            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard' ? 'border-r-4 md:border-r-[6px] bg-[#036666] border-orange-500/90' : ''}`}
           >
-            Dashboard
+           <span><MdDashboard size={22}/></span> Dashboard
           </Link>
           <Link
-            href="/Dashboard/PaymentHistory"
-            className="block p-2 rounded hover:bg-gray-200"
+            href="/dashboard/add_by_seller"
+            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/add_by_seller' ? 'border-r-4 md:border-r-[6px] bg-[#036666] border-orange-500/90' : ''}`}
           >
-            Payments History
+            <span><MdLibraryAdd size={22}/>
+             </span> Add Product
           </Link>
-          <Link
-            href="/dashboard/settings"
-            className="block p-2 rounded hover:bg-gray-200"
-          >
-            Settings
-          </Link>
+
         </nav>
       </aside>
 

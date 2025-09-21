@@ -83,176 +83,189 @@ export default function AddProduct() {
   };
 
   return (
-    <section className="flex justify-center items-center   min-h-screen bg-white p-4">
-      <form onSubmit={handleSubmit} className=" rounded-2xl  w-full ">
-        <div>
-          <p className="text-base font-medium">Product Image</p>
-          <div className="flex flex-wrap items-center gap-3 mt-2">
-            {[...Array(4)].map((_, index) => (
-              <label
-                key={index}
-                htmlFor={`image${index}`}
-                className="cursor-pointer"
-              >
-                <input
-                  type="file"
-                  id={`image${index}`}
-                  hidden
-                  onChange={(e) => handleFileChange(e, index)}
-                />
+    <>
+      <section>
+        <div className="h-[150px] w-full bg-gradient-to-r from-[#006661] from-10% via-[#007a74] via-30% to-[#00a39b] to-90%  mb-4">
+          <h1 className="text-3xl font-bold text-white pl-6 pt-10">
+            Let’s Add Something New!
+          </h1>
+          <p className="text-white/90 pl-6">
+            Share your product details and make it live in just minutes.
+          </p>
+        </div>
+      </section>
+      <section className="flex justify-center items-center   min-h-screen bg-white p-4">
+        <form onSubmit={handleSubmit} className=" rounded-2xl  w-full ">
+          <div>
+            <p className="text-base font-medium">Product Image</p>
+            <div className="flex flex-wrap items-center gap-3 mt-2">
+              {[...Array(4)].map((_, index) => (
+                <label
+                  key={index}
+                  htmlFor={`image${index}`}
+                  className="cursor-pointer"
+                >
+                  <input
+                    type="file"
+                    id={`image${index}`}
+                    hidden
+                    onChange={(e) => handleFileChange(e, index)}
+                  />
 
-                {files[index] ? (
-                  <img
-                    src={URL.createObjectURL(files[index])}
-                    alt="upload preview"
-                    className="w-24 h-24 object-cover rounded-lg border"
-                  />
-                ) : (
-                  <img
-                    src="/upload_area.png"
-                    alt="upload placeholder"
-                    className="w-24 h-24 object-cover rounded-lg border"
-                  />
-                )}
+                  {files[index] ? (
+                    <img
+                      src={URL.createObjectURL(files[index])}
+                      alt="upload preview"
+                      className="w-24 h-24 object-cover rounded-lg border"
+                    />
+                  ) : (
+                    <img
+                      src="/upload_area.png"
+                      alt="upload placeholder"
+                      className="w-24 h-24 object-cover rounded-lg border"
+                    />
+                  )}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-5">
+            {/* Product Name */}
+            <div>
+              <label className="block text-gray-600 font-medium mb-2">
+                Product Name
               </label>
-            ))}
-          </div>
-        </div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter product name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
+                required
+              />
+            </div>
 
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Product Name */}
-          <div>
+            {/* Price */}
+            <div>
+              <label className="block text-gray-600 font-medium mb-2">
+                Price ($)
+              </label>
+              <input
+                type="number"
+                name="price"
+                placeholder="Enter price"
+                value={formData.price}
+                onChange={handleChange}
+                className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
+                required
+              />
+            </div>
+            {/* Price */}
+            <div>
+              <label className="block text-gray-600 font-medium mb-2">
+                Offer Price ($)
+              </label>
+              <input
+                type="number"
+                name="offerPrice"
+                placeholder="Enter price"
+                value={formData.offerPrice}
+                onChange={handleChange}
+                className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
+                required
+              />
+            </div>
+
+            {/* Category */}
+            <div>
+              <label className="block text-gray-600 font-medium mb-2">
+                Category
+              </label>
+              <select
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+                className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
+                required
+              >
+                <option value="">Select category</option>
+                <option value="phone">Phone</option>
+                <option value="laptop">Laptop</option>
+                <option value="bluetooth">Bluetooth</option>
+                <option value="gaming">Gaming Device</option>
+                <option value="watch">Watch</option>
+                <option value="headPhone">Head Phone</option>
+                <option value="camera">Camera</option>
+                <option value="shoes">Shoes</option>
+                <option value="jeans">Jeans</option>
+                <option value="Tshirts">Tshirts</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            {/* Brand */}
+            <div>
+              <label className="block text-gray-600 font-medium mb-2">
+                Brand
+              </label>
+              <input
+                type="text"
+                name="brand"
+                placeholder="Enter brand"
+                value={formData.brand}
+                onChange={handleChange}
+                className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
+                required
+              />
+            </div>
+
+            {/* Stock Quantity */}
+            <div>
+              <label className="block text-gray-600 font-medium mb-2">
+                Stock Quantity
+              </label>
+              <input
+                type="number"
+                name="stock"
+                placeholder="Enter stock quantity"
+                value={formData.stock}
+                onChange={handleChange}
+                className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
+                required
+              />
+            </div>
+          </div>
+
+          {/* Description - Full Width */}
+          <div className="mt-6">
             <label className="block text-gray-600 font-medium mb-2">
-              Product Name
+              Description
             </label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter product name"
-              value={formData.name}
+            <textarea
+              name="description"
+              placeholder="Write product details..."
+              value={formData.description}
               onChange={handleChange}
+              rows="4"
               className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
               required
             />
           </div>
 
-          {/* Price */}
-          <div>
-            <label className="block text-gray-600 font-medium mb-2">
-              Price ($)
-            </label>
-            <input
-              type="number"
-              name="price"
-              placeholder="Enter price"
-              value={formData.price}
-              onChange={handleChange}
-              className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
-              required
-            />
-          </div>
-          {/* Price */}
-          <div>
-            <label className="block text-gray-600 font-medium mb-2">
-              Offer Price ($)
-            </label>
-            <input
-              type="number"
-              name="offerPrice"
-              placeholder="Enter price"
-              value={formData.offerPrice}
-              onChange={handleChange}
-              className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
-              required
-            />
-          </div>
-
-          {/* Category */}
-          <div>
-            <label className="block text-gray-600 font-medium mb-2">
-              Category
-            </label>
-            <select
-              name="category"
-              value={formData.category}
-              onChange={handleChange}
-              className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
-              required
+          {/* Submit */}
+          <div className="mt-8">
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-[#006661] from-10% via-[#007a74] via-30% to-[#00a39b] to-90% hover:bg-[#d1965b] text-white font-semibold py-3  shadow-lg transition duration-200"
             >
-              <option value="">Select category</option>
-              <option value="phone">Phone</option>
-              <option value="laptop">Laptop</option>
-              <option value="bluetooth">Bluetooth</option>
-              <option value="gaming">Gaming Device</option>
-              <option value="watch">Watch</option>
-              <option value="camera">Camera</option>
-              <option value="shoes">Shoes</option>
-              <option value="jeans">Jeans</option>
-              <option value="Tshirts">Tshirts</option>
-              <option value="other">Other</option>
-            </select>
+              ➕ Add Product
+            </button>
           </div>
-
-          {/* Brand */}
-          <div>
-            <label className="block text-gray-600 font-medium mb-2">
-              Brand
-            </label>
-            <input
-              type="text"
-              name="brand"
-              placeholder="Enter brand"
-              value={formData.brand}
-              onChange={handleChange}
-              className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
-              required
-            />
-          </div>
-
-          {/* Stock Quantity */}
-          <div>
-            <label className="block text-gray-600 font-medium mb-2">
-              Stock Quantity
-            </label>
-            <input
-              type="number"
-              name="stock"
-              placeholder="Enter stock quantity"
-              value={formData.stock}
-              onChange={handleChange}
-              className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
-              required
-            />
-          </div>
-        </div>
-
-        {/* Description - Full Width */}
-        <div className="mt-6">
-          <label className="block text-gray-600 font-medium mb-2">
-            Description
-          </label>
-          <textarea
-            name="description"
-            placeholder="Write product details..."
-            value={formData.description}
-            onChange={handleChange}
-            rows="4"
-            className="w-full border border-gray-300  px-4 py-3 focus:ring-2 focus:ring-[#d4a373] outline-none"
-            required
-          />
-        </div>
-
-        {/* Submit */}
-        <div className="mt-8">
-          <button
-            type="submit"
-            className="w-full bg-[#d4a373] hover:bg-[#d1965b] text-white font-semibold py-3  shadow-lg transition duration-200"
-          >
-            ➕ Add Product
-          </button>
-        </div>
-      </form>
-    </section>
+        </form>
+      </section>
+    </>
   );
 }

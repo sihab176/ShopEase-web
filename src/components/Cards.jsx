@@ -7,7 +7,7 @@ const Cards = ({ data }) => {
   const { description, category, name, image, _id } = data || {};
   const rating = 4;
   return (
-    <div key={data._id} className="flex flex-col   shadow p-3 rounded ">
+    <div key={data._id} className="flex flex-col   shadow p-3 rounded hover:shadow-xl hover:shadow-yellow-200">
       <div className=" group relative  rounded-lg w-full h-64 flex items-center justify-center">
         <Image
           src={`${image[0]}`}
