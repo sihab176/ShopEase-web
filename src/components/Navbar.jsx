@@ -69,9 +69,9 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="/about"
+              href="/AboutPage"
               className={`font-semibold transition-colors hover:text-primary ${
-                pathname === "/about" ? "text-primary" : "text-gray-700"
+                pathname === "/AboutPage" ? "text-primary" : "text-gray-700"
               }`}
             >
               About
