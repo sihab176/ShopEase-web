@@ -23,9 +23,9 @@ const  TrandingCategory=()=> {
         {categories.map((cat, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center p-6 bg-gray-50 hover:bg-teal-100 transition-all rounded-full shadow-md cursor-pointer mb-3"
+            className="flex flex-col items-center justify-center p-6 bg-gray-50 hover:bg-gray-200 transition-all rounded-full shadow-md cursor-pointer mb-3"
           >
-            <div className="text-teal-600 mb-3">{cat.icon}</div>
+            <div className="text-orange-700 mb-3">{cat.icon}</div>
             <p className="text-sm font-medium text-gray-700">{cat.name}</p>
           </div>
         ))}

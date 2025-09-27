@@ -11,7 +11,7 @@ export default function Home() {
   return (
  <section>
   <Navbar/>
-     <section className="max-w-7xl mx-auto">
+     <section className="max-w-7xl mx-auto ">
     <Banner/>
     <CardSection/>
     <TrandingCategory/>

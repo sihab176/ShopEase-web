@@ -65,7 +65,7 @@ const OrderSummary = ({ grandTotal }) => {
             <p className="text-gray-600">Tax (2%)</p>${grandTotal * 0.02}
           </div>
           <div className="flex justify-between text-lg md:text-xl font-medium border-t pt-3">
-            <p>Total</p>${grandTotal - grandTotal * 0.02}
+            <p>Total</p> ${ (Number(grandTotal) + (Number(grandTotal) * 0.02)).toFixed(2) }
           </div>
         </div>
       </div>

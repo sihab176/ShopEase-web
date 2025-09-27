@@ -42,7 +42,9 @@ const Navbar = () => {
             height={40}
             className="object-contain"
           />
-          <h1 className="text-xl font-bold text-gray-800"><span className="text-[#ffd60a]">Shop</span>Ease</h1>
+          <h1 className="text-xl font-bold text-gray-800">
+            <span className="text-[#ffd60a]">Shop</span>Ease
+          </h1>
         </Link>
 
         {/* Navigation Links */}
@@ -50,8 +52,8 @@ const Navbar = () => {
           <li>
             <Link
               href="/"
-              className={`font-semibold transition-colors hover:text-primary ${
-                pathname === "/" ? "text-primary" : "text-gray-700"
+              className={`font-semibold transition-colors hover:text-orange-600 ${
+                pathname === "/" ? "text-orange-600" : "text-gray-700"
               }`}
             >
               Home
@@ -60,8 +62,10 @@ const Navbar = () => {
           <li>
             <Link
               href="/allProducts"
-              className={`font-semibold transition-colors hover:text-primary ${
-                pathname === "/allProducts" ? "text-primary" : "text-gray-700"
+              className={`font-semibold transition-colors hover:text-orange-600 ${
+                pathname === "/allProducts"
+                  ? "text-orange-600"
+                  : "text-gray-700"
               }`}
             >
               All Products
@@ -70,8 +74,8 @@ const Navbar = () => {
           <li>
             <Link
               href="/AboutPage"
-              className={`font-semibold transition-colors hover:text-primary ${
-                pathname === "/AboutPage" ? "text-primary" : "text-gray-700"
+              className={`font-semibold transition-colors hover:text-orange-600 ${
+                pathname === "/AboutPage" ? "text-orange-600" : "text-gray-700"
               }`}
             >
               About
@@ -81,8 +85,10 @@ const Navbar = () => {
             <li>
               <Link
                 href="/dashboard"
-                className={`font-semibold transition-colors hover:text-primary ${
-                  pathname === "/dashboard" ? "text-primary" : "text-gray-700"
+                className={`font-semibold transition-colors hover:text-orange-600 ${
+                  pathname === "/dashboard"
+                    ? "text-orange-600"
+                    : "text-gray-700"
                 }`}
               >
                 Dashboard
@@ -104,13 +110,13 @@ const Navbar = () => {
             </Link>
           )}
           <Link href="/my-cart">
-            <div className="dropdown dropdown-end " >
+            <div className="dropdown dropdown-end ">
               <div
                 tabIndex={0}
                 role="button"
                 className="btn btn-ghost btn-circle   border border-gray-300 relative"
               >
-                <div className="">
+                <div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
@@ -134,8 +140,7 @@ const Navbar = () => {
               <div
                 tabIndex={0}
                 className="card card-compact dropdown-content bg-base-100 z-1 mt-3 w-44 shadow"
-              >
-              </div>
+              ></div>
             </div>
           </Link>
         </div>

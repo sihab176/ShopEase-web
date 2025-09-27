@@ -25,7 +25,7 @@ const Banner = () => {
   ];
   return (
     <>
-      <section className="bg-yellow-300/70">
+      <section className="bg-gradient-to-r from-orange-500 to-amber-500">
         <Carousel
           autoPlay={true}
           infiniteLoop={true}
