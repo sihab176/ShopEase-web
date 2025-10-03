@@ -74,7 +74,7 @@ const RegisterFrom = () => {
             i agree to the terms and conditions
           </span>
         </label>
-        <input type="submit" className="btn bg-amber-300 hover:bg-amber-400 w-full mt-5 " value="signup" />
+        <input type="submit" className="btn bg-orange-600  hover:bg-orange-700 w-full mt-5 " value="signup" />
       </div>
     </form>
   );

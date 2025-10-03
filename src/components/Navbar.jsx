@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 const Navbar = () => {
   const pathname = usePathname();
   const { data: session, status } = useSession();
-  const [addProduct, setAddProduct] = useState();
+  const [addProduct, setAddProduct] = useState(0);
   // console.log("session ===========>", session);
   useEffect(() => {
     if (!session?.user?.email) return;
@@ -43,7 +43,7 @@ const Navbar = () => {
             className="object-contain"
           />
           <h1 className="text-xl font-bold text-gray-800">
-            <span className="text-[#ffd60a]">Shop</span>Ease
+            <span className="text-orange-600">Shop</span>Ease
           </h1>
         </Link>
 
@@ -104,7 +104,7 @@ const Navbar = () => {
           ) : (
             <Link
               href="/login"
-              className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full font-bold transition-colors hover:bg-primary-dark"
+              className="btn bg-orange-600 hover:bg-orange-700 text-white font-semibold"
             >
               Login
             </Link>

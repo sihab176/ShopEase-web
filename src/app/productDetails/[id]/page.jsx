@@ -6,13 +6,12 @@ const ProductDetailsPage = async ({ params }) => {
   const res = await fetch(`http://localhost:3000/api/product/${p.id}`);
   const productData = await res.json();
 
-    // console.log("single data", productData ,p);
+  // console.log("single data", productData ,p);
 
   return (
     <div>
       <Navbar />
-      product detils
-      <ProductDetailsComponent productData={productData}/>
+      <ProductDetailsComponent productData={productData} />
     </div>
   );
 };

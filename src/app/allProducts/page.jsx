@@ -13,7 +13,7 @@ const AllProductPage = () => {
   const [sort, setSort] = useState("latest");
   const [maxPrice, setMaxPrice] = useState(100000);
   const [page, setPage] = useState(1); // বর্তমান পেইজ
-  const [totalPages, setTotalPages] = useState(4); // মোট কয়টা পেইজ
+  const [totalPages, setTotalPages] = useState(2); // মোট কয়টা পেইজ
 
   const fetchData = async () => {
     try {
@@ -35,7 +35,6 @@ const AllProductPage = () => {
       );
       const data = await res.json();
       setProducts(data);
-      
     } catch (error) {
       console.error("Error fetching products:", error);
     }

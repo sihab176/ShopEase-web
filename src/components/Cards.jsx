@@ -14,7 +14,7 @@ const Cards = ({ data }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       key={data._id}
-      className="flex flex-col   shadow p-3 rounded hover:shadow-xl hover:shadow-yellow-200"
+      className="flex flex-col   shadow p-3 rounded hover:shadow-2xl "
     >
       <div className=" group relative  rounded-lg w-full h-64 flex items-center justify-center">
         <Image
@@ -23,9 +23,11 @@ const Cards = ({ data }) => {
           className="group-hover:scale-105 transition object-cover w-4/5 h-4/5 md:w-full md:h-full "
           width={400}
           height={400}
+        
         />
-        <button className="absolute top-0 right-0 bg-white p-2 rounded-full shadow-md">
-          <FaRegHeart className="text-red-600 h-4 w-4" />
+        <button className="absolute top-0 right-0 bg-red-800 text-white px-1 text-sm rounded shadow-md">
+          {/* <FaRegHeart className="text-red-600 h-4 w-4" /> */}
+          SALE
         </button>
       </div>
 

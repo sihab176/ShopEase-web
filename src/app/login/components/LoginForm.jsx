@@ -61,7 +61,7 @@ const LoginForm = () => {
             i agree to the terms and conditions
           </span>
         </label>
-        <button className="bg-amber-300 hover:bg-amber-400 w-full h-11 text-xl font-semibold mt-5">Login</button>
+        <button className="bg-orange-600  hover:bg-orange-700 w-full btn  mt-5">Login</button>
       </div>
     </form>
   );

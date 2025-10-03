@@ -190,11 +190,11 @@ const MyCart = () => {
 
                 {/* Continue Shopping */}
                 <div className="mt-6">
-                 <Link href={"/allProducts"}>
-                                   <button className="text-orange-500 hover:underline flex items-center gap-1">
-                    &larr; Continue Shopping
-                  </button>
-                 </Link>
+                  <Link href={"/allProducts"}>
+                    <button className="text-orange-500 hover:underline flex items-center gap-1">
+                      &larr; Continue Shopping
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

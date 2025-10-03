@@ -37,6 +37,13 @@ export default function DashboardLayout({ children }) {
             <span><MdLibraryAdd size={22}/>
              </span> Add Product
           </Link>
+          <Link
+            href="/dashboard/allproduct_manager"
+            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/allproduct_manager' ? 'border-r-4 md:border-r-[6px] bg-[#036666] border-orange-500/90' : ''}`}
+          >
+            <span><MdLibraryAdd size={22}/>
+             </span> Product manager
+          </Link>
 
         </nav>
       </aside>
