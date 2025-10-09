@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { MdDashboard, MdLibraryAdd } from "react-icons/md";
+import { TbListDetails } from "react-icons/tb";
 export default function DashboardLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname= usePathname()
@@ -12,8 +13,8 @@ export default function DashboardLayout({ children }) {
     <div className="flex h-screen bg-gray-100 text-black">
       
       {/* Sidebar for large screens */}
-      <aside className="hidden md:flex md:flex-col w-64 bg-[#042a2b] shadow-lg text-white">
-        <Link href="/" className="flex  items-center space-x-2 pl-11 py-11 bg-[#0b5255]">
+      <aside className="hidden md:flex md:flex-col w-64 bg-[#0d1b2a] shadow-lg text-white">
+        <Link href="/" className="flex  items-center space-x-2 pl-11 py-11 bg-gray-300">
           <Image
             src="/shopping-bag.png"
             alt="Company Logo"
@@ -21,27 +22,27 @@ export default function DashboardLayout({ children }) {
             height={40}
             className="object-contain"
           />
-          <span className="text-xl font-bold ">ShopEase</span>
+          <span className="text-xl font-bold text-black ">ShopEase</span>
         </Link>
         <nav className="flex-1 p-4 space-y-2">
           <Link
             href="/dashboard"
-            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard' ? 'border-r-4 md:border-r-[6px] bg-[#036666] border-orange-500/90' : ''}`}
+            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
           >
            <span><MdDashboard size={22}/></span> Dashboard
           </Link>
           <Link
             href="/dashboard/add_by_seller"
-            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/add_by_seller' ? 'border-r-4 md:border-r-[6px] bg-[#036666] border-orange-500/90' : ''}`}
+            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/add_by_seller' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
           >
             <span><MdLibraryAdd size={22}/>
              </span> Add Product
           </Link>
           <Link
             href="/dashboard/allproduct_manager"
-            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/allproduct_manager' ? 'border-r-4 md:border-r-[6px] bg-[#036666] border-orange-500/90' : ''}`}
+            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/allproduct_manager' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
           >
-            <span><MdLibraryAdd size={22}/>
+            <span><TbListDetails size={22}/>
              </span> Product manager
           </Link>
 
@@ -78,7 +79,7 @@ export default function DashboardLayout({ children }) {
         <nav className="flex-1 p-4 space-y-2">
           <Link
             href="/dashboard"
-            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard' ? 'border-r-4 md:border-r-[6px] bg-[#036666] border-orange-500/90' : ''}`}
+            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard' ? 'border-r-4 md:border-r-[6px] bg-[#cc5803] border-orange-500/90' : ''}`}
           >
            <span><MdDashboard size={22}/></span> Dashboard
           </Link>

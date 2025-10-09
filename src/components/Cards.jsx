@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const Cards = ({ data }) => {
   const { description, category, name, image, _id,offerPrice } = data || {};
   const rating = 4;
-  console.log("data===>", data);
+  // console.log("data===>", data);
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}

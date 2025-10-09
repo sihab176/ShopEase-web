@@ -85,7 +85,7 @@ export default function AddProduct() {
   return (
     <>
       <section>
-        <div className="h-[150px] w-full bg-gradient-to-r from-[#006661] from-10% via-[#007a74] via-30% to-[#00a39b] to-90%  mb-4">
+        <div className="h-[150px] w-full bg-gradient-to-r from-[#ba181b] via-[#f95738] to-[#ee6c4d] to-90%  mb-4">
           <h1 className="text-3xl font-bold text-white pl-6 pt-10">
             Let’s Add Something New!
           </h1>
@@ -259,7 +259,7 @@ export default function AddProduct() {
           <div className="mt-8">
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-[#006661] from-10% via-[#007a74] via-30% to-[#00a39b] to-90% hover:bg-[#d1965b] text-white font-semibold py-3  shadow-lg transition duration-200"
+              className="w-full btn bg-gradient-to-r from-[#ba181b] via-[#f95738] to-[#ee6c4d] to-90% hover:bg-[#f16c37] text-white font-semibold py-3  shadow-lg transition duration-200"
             >
               ➕ Add Product
             </button>

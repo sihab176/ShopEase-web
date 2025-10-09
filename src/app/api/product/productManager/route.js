@@ -11,3 +11,4 @@ export async function GET() {
     return new Response(JSON.stringify({ error: error.message }), { status: 400 });
   }
 }
+
