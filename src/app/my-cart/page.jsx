@@ -201,7 +201,7 @@ const MyCart = () => {
 
             {/* Order summary */}
             <div>
-              <OrderSummary grandTotal={grandTotal} />
+              <OrderSummary grandTotal={grandTotal} products={products} />
             </div>
           </div>
         )}
