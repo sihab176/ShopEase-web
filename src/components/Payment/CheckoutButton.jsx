@@ -30,7 +30,7 @@ const CheckoutButton = ({order ,tax}) => {
             onClick={handleCheckout}
             disabled={loading}
             className='w-full bg-orange-600 text-white py-3 mt-5 hover:bg-orange-700'>
-                {loading ? "loading" : `pay ${totalPay}`}
+                {loading ? "loading..." : `pay ${totalPay}`}
             </button>
         </div>
     );
