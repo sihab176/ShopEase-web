@@ -35,3 +35,13 @@ export async function POST(req) {
         return NextResponse.json({error: message}, {status: 500})
     }
 }
+
+export async function GET() {
+    dbConnect()
+    try {
+        const products =await Payment.find({}).sort({createdAt:-1})
+        return new NextResponse(JSON.stringify(products), { status: 200 });
+    } catch (error) {
+        return new Response(JSON.stringify({ error: error.message }), { status: 400 });
+    }
+}

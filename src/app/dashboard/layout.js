@@ -5,6 +5,12 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { MdDashboard, MdLibraryAdd } from "react-icons/md";
 import { TbListDetails } from "react-icons/tb";
+import { FaMoneyCheckDollar } from "react-icons/fa6";
+import { FaUsers } from "react-icons/fa6";
+import { MdOutlinePendingActions } from "react-icons/md";
+import { TbStars } from "react-icons/tb";
+
+
 export default function DashboardLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname= usePathname()
@@ -44,6 +50,34 @@ export default function DashboardLayout({ children }) {
           >
             <span><TbListDetails size={22}/>
              </span> Product manager
+          </Link>
+          <Link
+            href="/dashboard/all_payment_manager"
+            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/all_payment_manager' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
+          >
+            <span><FaMoneyCheckDollar  size={22}/>
+             </span> All Payment
+          </Link>
+          <Link
+            href="/dashboard/all_users"
+            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/all_users' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
+          >
+            <span><FaUsers   size={22}/>
+             </span> All Users
+          </Link>
+          <Link
+            href="/dashboard/order_manager"
+            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/order_manager' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
+          >
+            <span><MdOutlinePendingActions   size={22}/>
+             </span> Order Manager
+          </Link>
+          <Link
+            href="/dashboard/customer_reviews"
+            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/customer_reviews' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
+          >
+            <span><TbStars    size={22}/>
+             </span> Customer Reviews
           </Link>
 
         </nav>

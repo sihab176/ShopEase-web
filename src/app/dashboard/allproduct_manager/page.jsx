@@ -113,7 +113,7 @@ const productManager = () => {
               <col className="w-5" />
             </colgroup>
             <thead>
-              <tr className="dark:bg-gray-300">
+              <tr className="bg-gradient-to-r from-[#ba181b] via-[#f95738] to-[#ee6c4d] to-90%">
                 <th className="p-3">Image</th>
                 <th className="p-3">Name</th>
                 <th className="p-3">Category</th>
