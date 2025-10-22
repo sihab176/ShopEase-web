@@ -4,7 +4,7 @@ import userModel from "../../../../models/UserModel"
 
 import bcrypt from "bcryptjs";
 
-export const registerUser= async({name , email , password})=>{
+export const registerUser= async({name , email , password ,phoneNumber})=>{
 
 
     await dbConnect()
@@ -18,7 +18,8 @@ export const registerUser= async({name , email , password})=>{
     const newUser= new userModel({
         name,
         email,
-        password : hashedPassword
+        password : hashedPassword,
+        phoneNumber
     })
     await newUser.save()
     return { success: true, message: "User registered successfully" };
