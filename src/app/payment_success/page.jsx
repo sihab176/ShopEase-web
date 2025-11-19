@@ -1,11 +1,14 @@
 "use client";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
+import Swal from "sweetalert2";
 
 const PaymentSuccessPage = () => {
+  const { data: session } = useSession();
   const [rating, setRating] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [review, setReview] = useState("");
@@ -13,7 +16,7 @@ const PaymentSuccessPage = () => {
   const searchParams = useSearchParams();
   const session_id = searchParams.get("session_id");
 
-  // post the  transition of payment ----------------->
+  //! post the  transition of payment ----------------->
   useEffect(() => {
     if (session_id) {
       const postData = async () => {
@@ -31,41 +34,84 @@ const PaymentSuccessPage = () => {
     }
   }, [session_id]);
 
-  //  for rating --------------------------------------->
+  // ! for rating --------------------------------------->
   // modal -->
   useEffect(() => {
     const timer = setTimeout(() => setShowModal(true), 2000);
     return () => clearTimeout(timer);
   }, []);
 
-  // handle submit review ------------------------------>
-  const handleSubmit = (e) => {};
-  console.log(rating);
+  useEffect(() => {
+    if (session?.user?.email) {
+      const handleDeleteCart = async () => {
+        const deletedCart = await fetch(
+          `/api/clear_cart?email=${session.user.email}`,
+          {
+            method: "DELETE",
+          }
+        );
+        const result = await deletedCart.json();
+        console.log("result for deleted", result);
+      };
+      handleDeleteCart();
+    }
+  }, [session_id,session]);
+
+
+  console.log({ email: session?.user?.email });
+  //! handle submit review ------------------------------>
+  const handleSubmit = async (e) => {
+    setShowModal(false);
+    const data = {
+      review,
+      rating,
+      name: session?.user?.name,
+      email: session.user.email,
+    };
+
+    const res = await fetch("api/review", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (res) {
+      Swal.fire({
+        icon: "success",
+        title: "Thank you for giving us review",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+    console.log("res", res);
+  };
 
   return (
     <div className="">
       {/* payment success */}
       <div className="flex justify-center">
         <section className=" bg-base-100 md:w-7xl w-full shadow-2xl py-3 flex flex-col justify-center items-center  ">
-        <figure className="flex justify-center">
-          <img src="/check.png" alt="success logo" className="w-28" />
-        </figure>
-        <div className="card-body text-center">
-          <h2 className="text-2xl font-semibold ">
-            Your payment was successful
-          </h2>
-          <p className="">
-            Thank you for your payment. we will <br />
-            be in contact with more details shortly
-          </p>
+          <figure className="flex justify-center">
+            <img src="/check.png" alt="success logo" className="w-28" />
+          </figure>
+          <div className="card-body text-center">
+            <h2 className="text-2xl font-semibold ">
+              Your payment was successful
+            </h2>
+            <p className="">
+              Thank you for your payment. we will <br />
+              be in contact with more details shortly
+            </p>
 
-          <Link href={"/"}>
-            <button className="btn bg-green-400  mt-4">
-              Continue Shopping <span className="text-2xl">&rarr;</span>{" "}
-            </button>
-          </Link>
-        </div>
-      </section>
+            <Link href={"/"}>
+              <button className="btn bg-green-400  mt-4">
+                Continue Shopping <span className="text-2xl">&rarr;</span>{" "}
+              </button>
+            </Link>
+          </div>
+        </section>
       </div>
       {/* modal for review */}
       <section>
@@ -123,7 +169,6 @@ const PaymentSuccessPage = () => {
                   </button>
                   <button
                     type="submit"
-                    onClick={() => setShowModal(false)}
                     className="btn bg-[#a7c957] hover:bg-[#89a546]  w-full mt-4 py-5"
                   >
                     Submit Review

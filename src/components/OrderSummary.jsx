@@ -3,23 +3,19 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import CheckoutButton from "./Payment/CheckoutButton";
 
-const OrderSummary = ({ grandTotal ,products}) => {
+const OrderSummary = ({ grandTotal, products }) => {
   const [phoneNumber, setPhoneNumber] = useState();
 
   const [isOpen, setIsOpen] = useState(false);
-
-
-
-  
 
   return (
     <div className="w-full md:w-96 bg-gray-500/5 p-5">
       <h2 className="text-xl md:text-2xl font-medium text-gray-700">
         Order Summary
       </h2>
-      <hr className="border-gray-500/30 my-5" />
+
       <div className="space-y-6">
-        <div>
+        {/* <div>
           <label className="text-base font-medium uppercase text-gray-600 block mb-2">
             write Address
           </label>
@@ -51,7 +47,7 @@ const OrderSummary = ({ grandTotal ,products}) => {
               className="border focus:ring-1 focus:border-amber-600"
             />
           </div>
-        </div>
+        </div> */}
 
         <hr className="border-gray-500/30 my-5" />
 
@@ -64,19 +60,16 @@ const OrderSummary = ({ grandTotal ,products}) => {
             <p className="text-gray-600">Tax (2%)</p>${grandTotal * 0.02}
           </div>
           <div className="flex justify-between text-lg md:text-xl font-medium border-t pt-3">
-            <p>Total</p> ${ (Number(grandTotal) + (Number(grandTotal) * 0.02)).toFixed(2) }
+            <p>Total</p> $
+            {(Number(grandTotal) + Number(grandTotal) * 0.02).toFixed(2)}
           </div>
         </div>
       </div>
 
-      <div
-        
-        className=""
-      >
-        <CheckoutButton order={products} tax={grandTotal}/>
+      <div className="">
+        <CheckoutButton order={products} tax={grandTotal} />
       </div>
-      {/* Modal (inside same file) */}
-     
+
     </div>
   );
 };

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   LineChart,
   Line,
@@ -12,29 +12,97 @@ import {
   PieChart,
   Pie,
   Cell,
+  ComposedChart,
+  CartesianGrid,
+  Legend,
+  Area,
 } from "recharts";
 
-const lineData = [
-  { name: "Jan", value: 200 },
-  { name: "Feb", value: 270 },
-  { name: "Mar", value: 200 },
-  { name: "Apr", value: 400 },
+const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
+const data = [
+  {
+    name: "Page A",
+    uv: 4000,
+    pv: 2400,
+    amt: 2400,
+  },
+  {
+    name: "Page B",
+    uv: 3000,
+    pv: 1398,
+    amt: 2210,
+  },
+  {
+    name: "Page C",
+    uv: 2000,
+    pv: 9800,
+    amt: 2290,
+  },
+  {
+    name: "Page D",
+    uv: 2780,
+    pv: 3908,
+    amt: 2000,
+  },
+  {
+    name: "Page E",
+    uv: 1890,
+    pv: 4800,
+    amt: 2181,
+  },
+  {
+    name: "Page F",
+    uv: 2390,
+    pv: 3800,
+    amt: 2500,
+  },
+  {
+    name: "Page G",
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
 ];
 
-const barData = [
-  { name: "A", uv: 300, pv: 456 },
-  { name: "B", uv: 145, pv: 230 },
-  { name: "C", uv: 100, pv: 345 },
-  { name: "D", uv: 8, pv: 450 },
-];
+// Triangle Style Shape (unchanged)
+const getPath = (x, y, width, height) => {
+  return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${
+    y + height / 3
+  }
+    ${x + width / 2}, ${y}
+    C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${
+    x + width
+  }, ${y + height}
+    Z`;
+};
+const TriangleBar = (props) => {
+  const { fill, x, y, width, height } = props;
+  return (
+    <path
+      d={getPath(Number(x), Number(y), Number(width), Number(height))}
+      stroke="none"
+      fill={fill}
+    />
+  );
+};
 
-const pieData = [
-  { name: "Completed", value: 65 },
-  { name: "Remaining", value: 35 },
-];
 const COLORS = ["#00C49F", "#e5e7eb"];
 
 const page = () => {
+  const [sellData, setSellData] = useState([]);
+  useEffect(() => {
+    const sellsFun = async () => {
+      const res = await fetch("http://localhost:3000/api/save-payment", {
+        cache: "no-store",
+      });
+      const sells = await res.json();
+      setSellData(sells);
+    };
+    sellsFun();
+  }, []);
+
+  console.log("this is sell data", sellData);
+
   return (
     <div className="space-y-8">
       {/* Title */}
@@ -44,17 +112,17 @@ const page = () => {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="p-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded shadow-lg text-white">
+        <div className="p-6 bg-gradient-to-r from-[#e0fbfc] to-[#c2dfe3] rounded shadow-lg ">
           <h2 className="text-lg font-medium">Total Products</h2>
           <p className="text-3xl font-bold">120</p>
         </div>
 
-        <div className="p-6 bg-gradient-to-r from-green-500 to-teal-500 rounded shadow-lg text-white">
+        <div className="p-6 bg-gradient-to-r from-[#e6ccb2] to-[#ddb892] rounded shadow-lg ">
           <h2 className="text-lg font-medium">Orders</h2>
           <p className="text-3xl font-bold">350</p>
         </div>
 
-        <div className="p-6 bg-gradient-to-r from-pink-500 to-rose-600 rounded shadow-lg text-white">
+        <div className="p-6 bg-gradient-to-r from-[#edafb8] to-[#ffb3c6] rounded shadow-lg">
           <h2 className="text-lg font-medium">Users</h2>
           <p className="text-3xl font-bold">78</p>
         </div>
@@ -62,64 +130,38 @@ const page = () => {
 
       <div className="p-6 grid grid-cols-12 gap-6">
         {/* Top Line Chart */}
-        <div className="col-span-12 bg-white rounded-xl shadow p-4">
+        <div className="col-span-12 bg-white rounded shadow p-4">
           <h2 className="text-lg font-semibold mb-2">Sales Overview</h2>
-          <ResponsiveContainer width="100%" height={200}>
-            <LineChart data={lineData}>
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Line
-                type="monotone"
-                dataKey="value"
-                stroke="#6366f1"
-                strokeWidth={3}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* Three small widgets */}
-        <div className="col-span-12 md:col-span-4 bg-white rounded-xl shadow p-4 flex flex-col items-center justify-center">
-          <h2 className="text-md font-semibold mb-2">Progress</h2>
-          <PieChart width={120} height={120}>
-            <Pie
-              data={pieData}
-              cx="50%"
-              cy="50%"
-              outerRadius={50}
-              fill="#8884d8"
-              dataKey="value"
-            >
-              {pieData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index]} />
-              ))}
-            </Pie>
-          </PieChart>
-          <p className="font-bold text-xl">65%</p>
-        </div>
-
-        <div className="col-span-12 md:col-span-4 bg-white rounded-xl shadow p-4">
-          <h2 className="text-md font-semibold mb-2">Monthly Growth</h2>
-          <ResponsiveContainer width="100%" height={120}>
-            <LineChart data={lineData}>
-              <Line
-                type="monotone"
-                dataKey="value"
-                stroke="#10b981"
-                strokeWidth={3}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-
-        <div className="col-span-12 md:col-span-4 bg-white rounded-xl shadow p-4">
-          <h2 className="text-md font-semibold mb-2">Bar Analytics</h2>
-          <ResponsiveContainer width="100%" height={120}>
-            <BarChart data={barData}>
-              <Bar dataKey="uv" fill="#f59e0b" />
-            </BarChart>
-          </ResponsiveContainer>
+          {/* sells charts */}
+          <div style={{ width: "100%", height: 300 }}>
+            <ResponsiveContainer>
+              <ComposedChart
+                width={500}
+                height={200}
+                data={sellData}
+                margin={{
+                  top: 20,
+                  right: 20,
+                  bottom: 20,
+                  left: 20,
+                }}
+              >
+                <CartesianGrid stroke="#f5f5f5" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Area
+                  type="monotone"
+                  dataKey="amount_total"
+                  fill="#e6ccb2"
+                  stroke="#8884d8"
+                />
+                <Bar dataKey="amount_total" barSize={20} fill="#413ea0" />
+                {/* <Line type="monotone" dataKey="uv" stroke="#ff7300" /> */}
+              </ComposedChart>
+            </ResponsiveContainer>
+          </div>
         </div>
 
         {/* Right side vertical stats */}
@@ -148,13 +190,23 @@ const page = () => {
         {/* Large Bar Chart */}
         <div className="col-span-12 md:col-span-8 bg-white rounded-xl shadow p-4">
           <h2 className="text-lg font-semibold mb-4">Performance</h2>
-          <ResponsiveContainer width="100%" height={200}>
-            <BarChart data={barData}>
-              <XAxis dataKey="name" />
+
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              data={data}
+              margin={{ top: 20, right: 0, left: 0, bottom: 5 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" interval={0} angle={-20} textAnchor="end" />
               <YAxis />
-              <Tooltip />
-              <Bar dataKey="pv" fill="#3b82f6" />
-              <Bar dataKey="uv" fill="#f97316" />
+              <Bar dataKey="pv" shape={TriangleBar} label={{ position: "top" }}>
+                {data.map((_entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={colors[index % colors.length]}
+                  />
+                ))}
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </div>

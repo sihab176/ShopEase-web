@@ -49,7 +49,7 @@ const Cards = ({ data }) => {
       <div className="flex items-end justify-between w-full mt-1">
         <p className="text-base font-medium"><span>Price: $</span> {offerPrice}</p>
         <Link href={`productDetails/${_id}`}>
-          <button className=" cursor-pointer  px-4 py-1.5 text-gray-500 border border-gray-500/20 rounded-full text-xs hover:bg-slate-50 transition">
+          <button className=" cursor-pointer  px-4 py-1.5 text-gray-500 border border-gray-500/20 rounded-full text-xs hover:bg-slate-200 transition">
             Buy now
           </button>
         </Link>

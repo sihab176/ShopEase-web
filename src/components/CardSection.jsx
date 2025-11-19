@@ -30,7 +30,8 @@ const CardSection = () => {
       {loading ? (
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 my-20 mx-4">
           {Skeleton.map((data) => (
-            <div
+            <div 
+            key={data}
               className=" rounded shadow-md w-60 sm:w-60 animate-pulse h-96"
               bis_skin_checked="1"
             >
