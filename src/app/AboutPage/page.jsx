@@ -9,10 +9,10 @@ export default function AboutPage() {
       <Navbar />
       <div className="bg-gray-50 text-gray-800">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-orange-300 to-yellow-200 text-white py-20 px-6 md:px-20">
+        <section className="relative bg-gradient-to-r from-[#42946e] to-[#004733] text-white py-20 px-6 md:px-20">
           <div className="max-w-6xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold">About Us</h1>
-            <p className="mt-4 text-lg md:text-xl">
+            <h1 className="text-4xl md:text-6xl ">𝔸𝕓𝕠𝕦𝕥 𝕌𝕤</h1>
+            <p className="mt-4 text-lg md:text-xl text-gray-300">
               Discover who we are, what we do, and why we are the best choice
               for your shopping journey.
             </p>
@@ -47,14 +47,14 @@ export default function AboutPage() {
         {/* Mission & Vision */}
         <section className="bg-white py-16 px-6 md:px-20">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
-            <div className="bg-orange-100 p-8 rounded-xl shadow">
+            <div className="bg-[#c2dfe3] p-8 rounded-xl shadow">
               <h3 className="text-2xl font-bold mb-3">Our Mission</h3>
               <p className="text-gray-600">
                 To create a seamless shopping experience that empowers our
                 customers with convenience, trust, and value.
               </p>
             </div>
-            <div className="bg-yellow-100 p-8 rounded-xl shadow">
+            <div className="bg-[#9db4c0] p-8 rounded-xl shadow">
               <h3 className="text-2xl font-bold mb-3">Our Vision</h3>
               <p className="text-gray-600">
                 To be the leading e-commerce platform known for quality,

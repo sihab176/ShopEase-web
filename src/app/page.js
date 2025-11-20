@@ -22,7 +22,7 @@ export default function Home() {
     <HotCategory/>
 
      </section>
-  <Footer/>
+    <Footer/>
  </section>
   );
 }

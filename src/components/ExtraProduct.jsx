@@ -8,30 +8,37 @@ const ExtraProduct = () => {
     {
       imageName: "/handFan-removebg-preview.png",
       text: "Hand Fan",
+      id:1
     },
     {
       imageName: "/face-wash-removebg-preview.png",
       text: "Face Wash",
+      id:2
     },
     {
       imageName: "/lamp-removebg-preview.png",
       text: "Lamp",
+      id:3
     },
     {
       imageName: "/sofa-removebg-preview.png",
       text: "Furniture",
+      id:4
     },
     {
       imageName: "/sunGlass-removebg-preview.png",
       text: "Sun Glass",
+      id:5
     },
     {
       imageName: "/washing_machine-removebg-preview.png",
       text: "Washing Machine",
+      id:6
     },
     {
       imageName: "/blutooth-removebg-preview.png",
       text: "Bluetooth",
+      id:7
     },
   ];
   return (

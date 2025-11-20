@@ -25,7 +25,7 @@ const Banner = () => {
   ];
   return (
     <>
-      <section className={`bg-gradient-to-r from-orange-500 to-amber-500 `}>
+      <section className={`bg-[#2d6a4f] `}>
         <Carousel
           autoPlay={true}
           infiniteLoop={true}
@@ -95,7 +95,7 @@ const Banner = () => {
                     <FaInstagram className="cursor-pointer hover:text-gray-700" />
                     <FaWhatsapp className="cursor-pointer hover:text-gray-700" />
                   </div>
-                  <p className="text-3xl text-gray-500 uppercase tracking-wide ">
+                  <p className="text-3xl text-gray-400 uppercase tracking-wide ">
                     New Arrivals
                   </p>
 
