@@ -81,6 +81,16 @@ const Navbar = () => {
               About
             </Link>
           </li>
+          <li>
+            <Link
+              href="/Contact_us"
+              className={`font-semibold transition-colors hover:text-orange-600 ${
+                pathname === "/Contact_us" ? "text-orange-600" : "text-gray-700"
+              }`}
+            >
+              Contact us
+            </Link>
+          </li>
           {session && (
             <li>
               <Link

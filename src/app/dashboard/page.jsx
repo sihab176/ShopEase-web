@@ -18,51 +18,15 @@ import {
   Area,
 } from "recharts";
 
-const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
-const data = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
+const colors = [
+  "#2d6a4f",
+  "#2d6a4f",
+  "#2d6a4f",
+  "#2d6a4f",
+  "#2d6a4f",
+  "#2d6a4f",
 ];
+
 
 // Triangle Style Shape (unchanged)
 const getPath = (x, y, width, height) => {
@@ -86,10 +50,13 @@ const TriangleBar = (props) => {
   );
 };
 
-const COLORS = ["#00C49F", "#e5e7eb"];
+// const COLORS = ["#00C49F", "#e5e7eb"];
 
 const page = () => {
+  const [user,setUser]=useState([])
   const [sellData, setSellData] = useState([]);
+  const [allProducts, setAllProduct] = useState([]);
+  // sells payment data ------------------>
   useEffect(() => {
     const sellsFun = async () => {
       const res = await fetch("http://localhost:3000/api/save-payment", {
@@ -100,8 +67,29 @@ const page = () => {
     };
     sellsFun();
   }, []);
-
-  console.log("this is sell data", sellData);
+// product data -------------------------->
+  useEffect(() => {
+    const Product = async () => {
+      const res = await fetch("http://localhost:3000/api/product", {
+        cache: "no-store",
+      });
+      const data = await res.json();
+      setAllProduct(data);
+    };
+    Product();
+  }, []);
+// user data------------------------------>
+  useEffect(() => {
+    const userFan = async () => {
+      const res = await fetch("http://localhost:3000/api/all_user_Api", {
+        cache: "no-store",
+      });
+      const data = await res.json();
+      setUser(data)
+    };
+    userFan();
+  }, []);
+  console.log("this the all user", user);
 
   return (
     <div className="space-y-8">
@@ -114,17 +102,17 @@ const page = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="p-6 bg-gradient-to-r from-[#e0fbfc] to-[#c2dfe3] rounded shadow-lg ">
           <h2 className="text-lg font-medium">Total Products</h2>
-          <p className="text-3xl font-bold">120</p>
+          <p className="text-3xl font-bold">{allProducts.length}</p>
         </div>
 
         <div className="p-6 bg-gradient-to-r from-[#e6ccb2] to-[#ddb892] rounded shadow-lg ">
-          <h2 className="text-lg font-medium">Orders</h2>
-          <p className="text-3xl font-bold">350</p>
+          <h2 className="text-lg font-medium">Total sells</h2>
+          <p className="text-3xl font-bold">{sellData.length}</p>
         </div>
 
         <div className="p-6 bg-gradient-to-r from-[#edafb8] to-[#ffb3c6] rounded shadow-lg">
           <h2 className="text-lg font-medium">Users</h2>
-          <p className="text-3xl font-bold">78</p>
+          <p className="text-3xl font-bold">{user.length}</p>
         </div>
       </div>
 
@@ -165,45 +153,86 @@ const page = () => {
         </div>
 
         {/* Right side vertical stats */}
-        <div className="col-span-12 md:col-span-4 bg-white rounded-xl shadow p-4">
-          <h2 className="text-lg font-semibold mb-4">Stats</h2>
-          <ul className="space-y-2 text-gray-700">
-            <li className="flex justify-between">
-              <span>Orders</span>
-              <span>634</span>
-            </li>
-            <li className="flex justify-between">
-              <span>Products</span>
-              <span>541</span>
-            </li>
-            <li className="flex justify-between">
-              <span>Users</span>
-              <span>123</span>
-            </li>
-            <li className="flex justify-between">
-              <span>Revenue</span>
-              <span>$9,234</span>
-            </li>
-          </ul>
+        <div className="col-span-12 md:col-span-4">
+          <div
+            className="bg-white/70 backdrop-blur-md border border-gray-200 rounded-2xl shadow-lg p-6 
+                  hover:shadow-xl  "
+          >
+            <h2 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
+              📊 Stats Overview
+            </h2>
+
+            <div className="space-y-4">
+              {/* Item */}
+              <div
+                className="flex justify-between items-center p-3 rounded-lg bg-gray-50 
+                      hover:bg-gray-100 transition"
+              >
+                <span className="text-gray-600 flex items-center gap-2">
+                  🛒 Total Payments 
+                </span>
+                <span className="font-semibold text-gray-900">{sellData.length}</span>
+              </div>
+
+              <div
+                className="flex justify-between items-center p-3 rounded-lg bg-gray-50 
+                      hover:bg-gray-100 transition"
+              >
+                <span className="text-gray-600 flex items-center gap-2">
+                  📦 Products
+                </span>
+                <span className="font-semibold text-gray-900">{allProducts.length}</span>
+              </div>
+
+              <div
+                className="flex justify-between items-center p-3 rounded-lg bg-gray-50 
+                      hover:bg-gray-100 transition"
+              >
+                <span className="text-gray-600 flex items-center gap-2">
+                  👤 Users
+                </span>
+                <span className="font-semibold text-gray-900">{user.length}</span>
+              </div>
+
+              {/* <div
+                className="flex justify-between items-center p-3 rounded-lg bg-gray-50 
+                      hover:bg-gray-100 transition"
+              >
+                <span className="text-gray-600 flex items-center gap-2">
+                  💰 Revenue
+                </span>
+                <span className="font-semibold text-gray-900">$9,234</span>
+              </div> */}
+            </div>
+          </div>
         </div>
 
         {/* Large Bar Chart */}
-        <div className="col-span-12 md:col-span-8 bg-white rounded-xl shadow p-4">
-          <h2 className="text-lg font-semibold mb-4">Performance</h2>
+        <div className="col-span-12 md:col-span-8 bg-white rounded-xl shadow px-4 pb-12">
+          <h2 className="text-lg font-semibold mb-4">Products Price</h2>
 
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
-              data={data}
+              data={allProducts}
               margin={{ top: 20, right: 0, left: 0, bottom: 5 }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" interval={0} angle={-20} textAnchor="end" />
+              <XAxis
+                dataKey="brand"
+                interval={0}
+                angle={-20}
+                textAnchor="end"
+              />
               <YAxis />
-              <Bar dataKey="pv" shape={TriangleBar} label={{ position: "top" }}>
-                {data.map((_entry, index) => (
+              <Bar
+                dataKey="offerPrice"
+                shape={TriangleBar}
+                label={{ position: "top" }}
+              >
+                {allProducts.map((_entry, index) => (
                   <Cell
                     key={`cell-${index}`}
-                    fill={colors[index % colors.length]}
+                    fill={`#2d6a4f`}
                   />
                 ))}
               </Bar>

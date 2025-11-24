@@ -10,10 +10,8 @@ export async function POST(req) {
     try {
         const {session_id}= await req.json();
         await dbConnect()
-
         // Stripe থেকে session details নিয়ে আসা
-        const session =await stripe.checkout.sessions.retrieve(session_id)
-        
+        const session =await stripe.checkout.sessions.retrieve(session_id) 
         // data a save  
         const newPayment= await Payment.create({
             email: session.customer_details?.email,
@@ -24,11 +22,8 @@ export async function POST(req) {
             transaction_id : session.id,
             createdAt: new Date(),
         });
-
-        console.log(" this the payment", newPayment);
-
+        // console.log(" this the payment", newPayment);
         return NextResponse.json({success: true , payment : newPayment})
-
 
     } catch (error) {
         console.log("payment save error", error);

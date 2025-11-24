@@ -19,7 +19,7 @@ export default function DashboardLayout({ children }) {
     <div className="flex h-screen bg-gray-100 text-black">
       
       {/* Sidebar for large screens */}
-      <aside className="hidden md:flex md:flex-col w-64 bg-[#0d1b2a] shadow-lg text-white">
+      <aside className="hidden  lg:flex lg:flex-col w-64 bg-[#0d1b2a] shadow-lg text-white">
         <Link href="/" className="flex  items-center space-x-2 pl-11 py-11 bg-gray-300">
           <Image
             src="/shopping-bag.png"
@@ -85,13 +85,13 @@ export default function DashboardLayout({ children }) {
 
       {/* Mobile sidebar */}
       <div
-        className={`fixed inset-0 bg-black/20 bg-opacity-40 z-40 md:hidden transition-opacity  ${
+        className={`fixed inset-0 bg-black/20 bg-opacity-40 z-40 lg:hidden transition-opacity  ${
           sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setSidebarOpen(false)}
       />
       <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform md:hidden ${
+        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform lg:hidden ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -134,7 +134,7 @@ export default function DashboardLayout({ children }) {
         <header className="flex items-center justify-between bg-white shadow p-4">
           <div className="flex items-center gap-2">
             <button
-              className="md:hidden p-2 rounded hover:bg-gray-200"
+              className="lg:hidden p-2 rounded hover:bg-gray-200"
               onClick={() => setSidebarOpen(true)}
             >
               ☰
