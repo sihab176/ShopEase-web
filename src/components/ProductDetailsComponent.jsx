@@ -9,12 +9,15 @@ const ProductDetailsComponent = ({ productData }) => {
   const router = useRouter();
   const [mainImage, setMainImage] = useState(null);
   const { data: session, status } = useSession();
-  console.log("status", status);
+  console.log("status---------->", status);
 
   // handel submit =================>
   const addToCart = async (id) => {
-    console.log("id", id);
-
+    if (status == "unauthenticated") {
+      router.push("/login");
+    } else {
+      router.push("/my-cart");
+    }
     const CartInfo = {
       product_name: productData?.name,
       product_image: productData?.image[0],
@@ -126,20 +129,14 @@ const ProductDetailsComponent = ({ productData }) => {
 
             <div className="flex items-center mt-10 gap-4">
               <button
-                disabled={status !== "authenticated"}
                 onClick={() => addToCart(productData._id)}
-                className={`w-full py-3.5  text-gray-800/80  transition ${
-                  status === "authenticated"
-                    ? "bg-green-200 hover:bg-green-300 active:bg-green-800"
-                    : "bg-gray-400 disabled:cursor-pointer"
-                }}`}
+                className={`w-full py-3.5  text-white  transition bg-[#2d6a4f] hover:bg-[#21503b] }`}
               >
                 Add to Cart
               </button>
               <button
                 onClick={() => {
                   addToCart(productData._id);
-                  router.push("/my-cart");
                 }}
                 className="w-full py-3.5 bg-orange-500 text-white hover:bg-orange-600 transition"
               >

@@ -31,11 +31,11 @@ export default function ProfileNav({ session }) {
             General
           </DropdownMenu.Label>
 
-          <Link href="/login">
+          {/* <Link href="/login">
             <DropdownMenu.Item className="cursor-pointer rounded-md px-2 py-2 text-sm outline-none data-[highlighted]:bg-gray-100">
               Profile
             </DropdownMenu.Item>
-          </Link>
+          </Link> */}
 
           <DropdownMenu.Item className="cursor-pointer rounded-md px-2 py-2 text-sm outline-none data-[highlighted]:bg-gray-100">
             {session?.user?.name}

@@ -27,6 +27,7 @@ const CardSection = () => {
 
   return (
     <div>
+      <h1 className="text-2xl font-bold text-center mt-12">Featured Products</h1>
       {loading ? (
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 my-20 mx-4">
           {Skeleton.map((data) => (

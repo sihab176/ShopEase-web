@@ -5,6 +5,9 @@ import { FaShippingFast, FaCreditCard, FaStar } from "react-icons/fa";
 const WhyChooseUs = () => {
   return (
     <div>
+      <h2 className="text-2xl font-bold text-center my-10">
+        Why Shop With Us?
+      </h2>
       <section className="bg-[#bad8c3]  py-16 px-6 md:px-20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           {/* Left Content */}

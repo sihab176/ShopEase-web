@@ -130,7 +130,7 @@ const AllProductPage = () => {
           <div>
             <h2 className="font-semibold text-lg mb-3">Brands</h2>
             <div className="space-y-2">
-              {["Nike", "Adidas", "Samsung", "Apple"].map((b) => (
+              {["Dell", "Canon", "Samsung", "Apple"].map((b) => (
                 <label key={b} className="flex items-center gap-2">
                   <input
                     type="radio"

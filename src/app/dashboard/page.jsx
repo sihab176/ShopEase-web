@@ -27,7 +27,6 @@ const colors = [
   "#2d6a4f",
 ];
 
-
 // Triangle Style Shape (unchanged)
 const getPath = (x, y, width, height) => {
   return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${
@@ -53,7 +52,7 @@ const TriangleBar = (props) => {
 // const COLORS = ["#00C49F", "#e5e7eb"];
 
 const page = () => {
-  const [user,setUser]=useState([])
+  const [user, setUser] = useState([]);
   const [sellData, setSellData] = useState([]);
   const [allProducts, setAllProduct] = useState([]);
   // sells payment data ------------------>
@@ -67,7 +66,7 @@ const page = () => {
     };
     sellsFun();
   }, []);
-// product data -------------------------->
+  // product data -------------------------->
   useEffect(() => {
     const Product = async () => {
       const res = await fetch("http://localhost:3000/api/product", {
@@ -78,14 +77,14 @@ const page = () => {
     };
     Product();
   }, []);
-// user data------------------------------>
+  // user data------------------------------>
   useEffect(() => {
     const userFan = async () => {
       const res = await fetch("http://localhost:3000/api/all_user_Api", {
         cache: "no-store",
       });
       const data = await res.json();
-      setUser(data)
+      setUser(data);
     };
     userFan();
   }, []);
@@ -100,19 +99,28 @@ const page = () => {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="p-6 bg-gradient-to-r from-[#e0fbfc] to-[#c2dfe3] rounded shadow-lg ">
+        <div className="p-6 bg-gradient-to-r from-[#e0fbfc] to-[#c2dfe3] rounded shadow-lg border-l-4">
           <h2 className="text-lg font-medium">Total Products</h2>
           <p className="text-3xl font-bold">{allProducts.length}</p>
+          <p className="text-[10px] text-gray-700 mt-1">
+            Products currently listed in the marketplace
+          </p>
         </div>
 
-        <div className="p-6 bg-gradient-to-r from-[#e6ccb2] to-[#ddb892] rounded shadow-lg ">
-          <h2 className="text-lg font-medium">Total sells</h2>
+        <div className="p-6 bg-gradient-to-r from-[#e6ccb2] to-[#ddb892] rounded shadow-lg border-l-4">
+          <h2 className="text-lg font-medium">Total Sales</h2>
           <p className="text-3xl font-bold">{sellData.length}</p>
+          <p className="text-[10px] text-gray-700 mt-1">
+            Completed orders processed through the platform
+          </p>
         </div>
 
-        <div className="p-6 bg-gradient-to-r from-[#edafb8] to-[#ffb3c6] rounded shadow-lg">
-          <h2 className="text-lg font-medium">Users</h2>
+        <div className="p-6 bg-gradient-to-r from-[#edafb8] to-[#ffb3c6] rounded shadow-lg border-l-4">
+          <h2 className="text-lg font-medium">Total Users</h2>
           <p className="text-3xl font-bold">{user.length}</p>
+          <p className="text-[10px] text-gray-700 mt-1">
+            Active customers registered on your system
+          </p>
         </div>
       </div>
 
@@ -169,9 +177,11 @@ const page = () => {
                       hover:bg-gray-100 transition"
               >
                 <span className="text-gray-600 flex items-center gap-2">
-                  🛒 Total Payments 
+                  🛒 Total Payments
                 </span>
-                <span className="font-semibold text-gray-900">{sellData.length}</span>
+                <span className="font-semibold text-gray-900">
+                  {sellData.length}
+                </span>
               </div>
 
               <div
@@ -181,7 +191,9 @@ const page = () => {
                 <span className="text-gray-600 flex items-center gap-2">
                   📦 Products
                 </span>
-                <span className="font-semibold text-gray-900">{allProducts.length}</span>
+                <span className="font-semibold text-gray-900">
+                  {allProducts.length}
+                </span>
               </div>
 
               <div
@@ -191,7 +203,9 @@ const page = () => {
                 <span className="text-gray-600 flex items-center gap-2">
                   👤 Users
                 </span>
-                <span className="font-semibold text-gray-900">{user.length}</span>
+                <span className="font-semibold text-gray-900">
+                  {user.length}
+                </span>
               </div>
 
               {/* <div
@@ -230,10 +244,7 @@ const page = () => {
                 label={{ position: "top" }}
               >
                 {allProducts.map((_entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={`#2d6a4f`}
-                  />
+                  <Cell key={`cell-${index}`} fill={`#2d6a4f`} />
                 ))}
               </Bar>
             </BarChart>

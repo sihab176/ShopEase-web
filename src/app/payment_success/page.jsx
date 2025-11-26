@@ -118,13 +118,13 @@ const PaymentSuccessPage = () => {
         {showModal && (
           <div className="fixed inset-0 flex items-center justify-center bg-black/60 bg-opacity-50 z-50">
             {/* Modal box */}
-            <div className=" bg-white rounded-2xl shadow-2xl md:max-w-4/8  w-full p-6 relative md:mx-auto mx-2 ">
+            <div className=" bg-white rounded-2xl shadow-2xl md:max-w-4/8  w-full lg:p-6 p-3 relative md:mx-auto mx-2 ">
               <div className="text-center">
                 <figure className="flex justify-center items-center">
                   <img
                     src="/speech-bubble.png"
                     alt="success logo"
-                    className="w-28"
+                    className="lg:w-28 md:w-18 w-12"
                   />
                 </figure>
                 <h3 className="md:text-4xl text-2xl font-bold my-5 ">
@@ -153,7 +153,7 @@ const PaymentSuccessPage = () => {
                   value={review}
                   onChange={(e) => setReview(e.target.value)}
                   placeholder="Write your opinion on current price..."
-                  className="textarea w-full focus:border-[#a7c957] focus:ring-1"
+                  className="textarea md:h-7 w-full focus:border-[#a7c957] focus:ring-1"
                   rows="4"
                   required
                 ></textarea>
@@ -169,7 +169,7 @@ const PaymentSuccessPage = () => {
                   </button>
                   <button
                     type="submit"
-                    className="btn bg-[#a7c957] hover:bg-[#89a546]  w-full mt-4 py-5"
+                    className="btn bg-[#a7c957] hover:bg-[#89a546]  w-full lg:mt-4 py-5"
                   >
                     Submit Review
                   </button>

@@ -23,7 +23,7 @@ const categories = [
 const TrandingCategory = () => {
   return (
     <section className="py-10 bg-white">
-      <h2 className="text-2xl font-bold text-center mb-8">
+      <h2 className="text-2xl font-bold text-center mb-10">
         Trending Categories
       </h2>
 

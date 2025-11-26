@@ -1,5 +1,5 @@
 "use client";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
 import Link from "next/link";
@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const router = useRouter();
+  
   const { data: session, status } = useSession();
   const [addProduct, setAddProduct] = useState(0);
   // console.log("session ===========>", session);
@@ -30,10 +32,92 @@ const Navbar = () => {
     fetchData();
   }, [session?.user?.email]);
 
+  // handle my cart
+  const handleMyCart=()=>{
+    if(status === "unauthenticated"){
+       return router.push("/login");
+    }else{
+      router.push("/my-cart")
+    }
+
+  }
+
   return (
     <nav className="w-full bg-[#eff1ed] shadow sticky top-0 z-20">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
         {/* Logo and Brand Name */}
+        <button
+          className="btn  font-semibold md:hidden"
+          popoverTarget="popover-1"
+          style={{ anchorName: "--anchor-1" } /* as React.CSSProperties */}
+        >
+          ☰
+        </button>
+
+        <ul
+          className="dropdown menu w-52 rounded-box bg-base-100 shadow-sm"
+          popover="auto"
+          id="popover-1"
+          style={{ positionAnchor: "--anchor-1" } /* as React.CSSProperties */}
+        >
+          <li>
+            <Link
+              href="/"
+              className={`font-semibold transition-colors hover:text-orange-600 ${
+                pathname === "/" ? "text-orange-600" : "text-gray-700"
+              }`}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/allProducts"
+              className={`font-semibold transition-colors hover:text-orange-600 ${
+                pathname === "/allProducts"
+                  ? "text-orange-600"
+                  : "text-gray-700"
+              }`}
+            >
+              All Products
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/AboutPage"
+              className={`font-semibold transition-colors hover:text-orange-600 ${
+                pathname === "/AboutPage" ? "text-orange-600" : "text-gray-700"
+              }`}
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/Contact_us"
+              className={`font-semibold transition-colors hover:text-orange-600 ${
+                pathname === "/Contact_us" ? "text-orange-600" : "text-gray-700"
+              }`}
+            >
+              Contact us
+            </Link>
+          </li>
+          {session && (
+            <li>
+              <Link
+                href="/dashboard"
+                className={`font-semibold transition-colors hover:text-orange-600 ${
+                  pathname === "/dashboard"
+                    ? "text-orange-600"
+                    : "text-gray-700"
+                }`}
+              >
+                Dashboard
+              </Link>
+            </li>
+          )}
+        </ul>
+        {/* logo  */}
         <Link href="/" className="flex items-center space-x-2">
           <Image
             src="/shopping-bag.png"
@@ -119,7 +203,7 @@ const Navbar = () => {
               Login
             </Link>
           )}
-          <Link href="/my-cart">
+          <div onClick={handleMyCart}>
             <div className="dropdown dropdown-end ">
               <div
                 tabIndex={0}
@@ -152,7 +236,7 @@ const Navbar = () => {
                 className="card card-compact dropdown-content bg-base-100 z-1 mt-3 w-44 shadow"
               ></div>
             </div>
-          </Link>
+          </div>
         </div>
       </div>
     </nav>

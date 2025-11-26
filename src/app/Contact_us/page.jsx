@@ -62,8 +62,8 @@ const ContactUs = () => {
           <div className="my-8">
             <div className="flex gap-6 items-center mb-7">
               <div className="avatar">
-                <div className="ring-primary ring-offset-base-100 w-16 h-16 rounded-full ring-2 ring-offset-2">
-                  <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
+                <div className="ring-[#e8985e] ring-offset-base-100 w-16 h-16 rounded-full ring-2 ring-offset-2">
+                  <img src="https://i.ibb.co.com/F4Xrny7x/customer-c.jpg" />
                 </div>
               </div>
               <div>
@@ -78,16 +78,16 @@ const ContactUs = () => {
             </div>
             <div className="flex gap-6 items-center mb-7">
               <div className="avatar">
-                <div className="ring-primary ring-offset-base-100 w-16 h-16 rounded-full ring-2 ring-offset-2">
-                  <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
+                <div className="ring-[#e8985e] ring-offset-base-100 w-16 h-16 rounded-full ring-2 ring-offset-2">
+                  <img src="https://i.ibb.co.com/V0WcGrfb/customer-c2.jpg" />
                 </div>
               </div>
               <div>
-                <h4 className="text-2xl font-semibold">Elone Mask</h4>
+                <h4 className="text-2xl font-semibold">David warner</h4>
                 <p className="text-gray-600 text-[12px]">
                   Customer Care <br />{" "}
                   <span className="text-orange-600 text-[11px]">
-                    Toll Free +18559903383
+                    Toll Free +903588498293
                   </span>{" "}
                 </p>
               </div>

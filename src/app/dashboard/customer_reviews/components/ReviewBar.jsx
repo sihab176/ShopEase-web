@@ -41,13 +41,6 @@ const ReviewBar = () => {
                   className="h-2 rounded-full bg-orange-600"
                 ></motion.div>
               </div>
-
-              {/* Right stars (yellow) */}
-              {/* <div className="flex text-yellow-400">
-                {Array.from({ length: rate.stars }).map((_, i) => (
-                  <FaStar key={i} />
-                ))}
-              </div> */}
             </div>
           ))}
         </div>
