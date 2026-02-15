@@ -3,7 +3,7 @@
 
 // const editProduct = async ({ params }) => {
 //   const p = await params;
-//   const res = await fetch(`http://localhost:3000/api/product/${p.id}`);
+//   const res = await fetch(`https://shop-ease-six-xi.vercel.app/api/product/${p.id}`);
 //   const productData = await res.json();
 // //   console.log(productData);
 
@@ -74,7 +74,7 @@
 //       };
 
 //       // console.log("✅ Final Product Data:", finalData);
-//       const result = await fetch("http://localhost:3000/api/product", {
+//       const result = await fetch("https://shop-ease-six-xi.vercel.app/api/product", {
 //         method: "POST",
 //         headers: { "Content-Type": "application/json" },
 //         body: JSON.stringify(finalData),
@@ -86,10 +86,6 @@
 //       alert("Image upload failed!");
 //     }
 //   };
-
-
-
-
 
 //   return (
 //     <div>
@@ -272,7 +268,6 @@
 
 // export default editProduct;
 
-
 "use client";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
@@ -299,9 +294,12 @@ const EditProduct = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/api/product/${id}`, {
-          cache: "no-store",
-        });
+        const res = await fetch(
+          `https://shop-ease-six-xi.vercel.app/api/product/${id}`,
+          {
+            cache: "no-store",
+          }
+        );
         const data = await res.json();
         setFormData(data);
       } catch (err) {
@@ -316,7 +314,7 @@ const EditProduct = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-// !✅ handle change file---------------------------------->
+  // !✅ handle change file---------------------------------->
   const handleFileChange = (e, index) => {
     const updatedFiles = [...files];
     updatedFiles[index] = e.target.files[0];
@@ -329,7 +327,7 @@ const EditProduct = () => {
 
     let imageUrls = formData.image;
 
-    // যদি নতুন ছবি select করে, তাহলে সেগুলো upload করবো 
+    // যদি নতুন ছবি select করে, তাহলে সেগুলো upload করবো
     if (files.length > 0) {
       try {
         const uploadPromises = files.filter(Boolean).map(async (file) => {
@@ -361,14 +359,17 @@ const EditProduct = () => {
     // ✅ Update API call (PUT)
     const updatedProduct = { ...formData, image: imageUrls };
 
-    console.log("updated product ====>",updatedProduct);
+    console.log("updated product ====>", updatedProduct);
 
     try {
-      const res = await fetch(`http://localhost:3000/api/product/productManager/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updatedProduct),
-      });
+      const res = await fetch(
+        `https://shop-ease-six-xi.vercel.app/api/product/productManager/${id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedProduct),
+        }
+      );
 
       if (res.ok) {
         Swal.fire("Updated!", "Product updated successfully.", "success");
@@ -392,7 +393,11 @@ const EditProduct = () => {
             <p className="text-base font-medium">Product Image</p>
             <div className="flex flex-wrap items-center gap-3 mt-2">
               {[...Array(4)].map((_, index) => (
-                <label key={index} htmlFor={`image${index}`} className="cursor-pointer">
+                <label
+                  key={index}
+                  htmlFor={`image${index}`}
+                  className="cursor-pointer"
+                >
                   <input
                     type="file"
                     id={`image${index}`}
@@ -421,7 +426,9 @@ const EditProduct = () => {
           {/* Inputs */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-5">
             <div>
-              <label className="block text-gray-600 font-medium mb-2">Product Name</label>
+              <label className="block text-gray-600 font-medium mb-2">
+                Product Name
+              </label>
               <input
                 type="text"
                 name="name"
@@ -432,7 +439,9 @@ const EditProduct = () => {
             </div>
 
             <div>
-              <label className="block text-gray-600 font-medium mb-2">Price ($)</label>
+              <label className="block text-gray-600 font-medium mb-2">
+                Price ($)
+              </label>
               <input
                 type="number"
                 name="price"
@@ -443,7 +452,9 @@ const EditProduct = () => {
             </div>
 
             <div>
-              <label className="block text-gray-600 font-medium mb-2">Offer Price ($)</label>
+              <label className="block text-gray-600 font-medium mb-2">
+                Offer Price ($)
+              </label>
               <input
                 type="number"
                 name="offerPrice"
@@ -454,7 +465,9 @@ const EditProduct = () => {
             </div>
 
             <div>
-              <label className="block text-gray-600 font-medium mb-2">Category</label>
+              <label className="block text-gray-600 font-medium mb-2">
+                Category
+              </label>
               <select
                 name="category"
                 value={formData.category}
@@ -471,7 +484,9 @@ const EditProduct = () => {
             </div>
 
             <div>
-              <label className="block text-gray-600 font-medium mb-2">Brand</label>
+              <label className="block text-gray-600 font-medium mb-2">
+                Brand
+              </label>
               <input
                 type="text"
                 name="brand"
@@ -482,7 +497,9 @@ const EditProduct = () => {
             </div>
 
             <div>
-              <label className="block text-gray-600 font-medium mb-2">Stock</label>
+              <label className="block text-gray-600 font-medium mb-2">
+                Stock
+              </label>
               <input
                 type="number"
                 name="stock"
@@ -494,7 +511,9 @@ const EditProduct = () => {
           </div>
 
           <div className="mt-6">
-            <label className="block text-gray-600 font-medium mb-2">Description</label>
+            <label className="block text-gray-600 font-medium mb-2">
+              Description
+            </label>
             <textarea
               name="description"
               value={formData.description}

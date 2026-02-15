@@ -13,7 +13,7 @@ const productManager = () => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
-        `http://localhost:3000/api/product/productManager`,
+        `https://shop-ease-six-xi.vercel.app/api/product/productManager`,
         {
           cache: "no-store",
         }
@@ -49,7 +49,7 @@ const productManager = () => {
           try {
             // ✅ Step 1: Delete request পাঠানো
             const res = await fetch(
-              `http://localhost:3000/api/product/productManager/${id}`,
+              `https://shop-ease-six-xi.vercel.app/api/product/productManager/${id}`,
               {
                 method: "DELETE",
               }
@@ -90,10 +90,10 @@ const productManager = () => {
       });
   };
 
-  // handle edit 
-  const handleEdit =(id)=>{
-    router.push(`/dashboard/editProduct/${id}`)
-  }
+  // handle edit
+  const handleEdit = (id) => {
+    router.push(`/dashboard/editProduct/${id}`);
+  };
 
   return (
     <section>
@@ -166,7 +166,7 @@ const productManager = () => {
                       <MdOutlineDelete size={24} />
                     </button>
                     <button
-                    onClick={()=>handleEdit(singleProduct._id)}
+                      onClick={() => handleEdit(singleProduct._id)}
                       type="button"
                       title="Edit"
                       className="p-1 rounded-full dark:text-green-500 hover:dark:bg-gray-300 focus:dark:bg-gray-300"

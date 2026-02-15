@@ -7,9 +7,12 @@ const all_users = () => {
   useEffect(() => {
     const paymentFunc = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/all_user_Api", {
-          cache: "no-store",
-        });
+        const res = await fetch(
+          "https://shop-ease-six-xi.vercel.app/api/all_user_Api",
+          {
+            cache: "no-store",
+          }
+        );
         if (!res.ok) throw new Error("Failed to fetch payments");
         const data = await res.json();
         setUsers(data);

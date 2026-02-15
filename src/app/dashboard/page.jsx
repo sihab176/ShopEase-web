@@ -58,9 +58,12 @@ const page = () => {
   // sells payment data ------------------>
   useEffect(() => {
     const sellsFun = async () => {
-      const res = await fetch("http://localhost:3000/api/save-payment", {
-        cache: "no-store",
-      });
+      const res = await fetch(
+        "https://shop-ease-six-xi.vercel.app/api/save-payment",
+        {
+          cache: "no-store",
+        }
+      );
       const sells = await res.json();
       setSellData(sells);
     };
@@ -69,9 +72,12 @@ const page = () => {
   // product data -------------------------->
   useEffect(() => {
     const Product = async () => {
-      const res = await fetch("http://localhost:3000/api/product", {
-        cache: "no-store",
-      });
+      const res = await fetch(
+        "https://shop-ease-six-xi.vercel.app/api/product",
+        {
+          cache: "no-store",
+        }
+      );
       const data = await res.json();
       setAllProduct(data);
     };
@@ -80,9 +86,12 @@ const page = () => {
   // user data------------------------------>
   useEffect(() => {
     const userFan = async () => {
-      const res = await fetch("http://localhost:3000/api/all_user_Api", {
-        cache: "no-store",
-      });
+      const res = await fetch(
+        "https://shop-ease-six-xi.vercel.app/api/all_user_Api",
+        {
+          cache: "no-store",
+        }
+      );
       const data = await res.json();
       setUser(data);
     };

@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
-  
+
   const { data: session, status } = useSession();
   const [addProduct, setAddProduct] = useState(0);
   // console.log("session ===========>", session);
@@ -19,7 +19,7 @@ const Navbar = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/api/addToCart/${session.user.email}`,
+          `https://shop-ease-six-xi.vercel.app/api/addToCart/${session.user.email}`,
           { cache: "no-store" }
         );
         const data = await res.json();
@@ -33,14 +33,13 @@ const Navbar = () => {
   }, [session?.user?.email]);
 
   // handle my cart
-  const handleMyCart=()=>{
-    if(status === "unauthenticated"){
-       return router.push("/login");
-    }else{
-      router.push("/my-cart")
+  const handleMyCart = () => {
+    if (status === "unauthenticated") {
+      return router.push("/login");
+    } else {
+      router.push("/my-cart");
     }
-
-  }
+  };
 
   return (
     <nav className="w-full bg-[#eff1ed] shadow sticky top-0 z-20">
@@ -126,7 +125,7 @@ const Navbar = () => {
             height={40}
             className="object-contain"
           />
-          <h1 className="text-xl font-bold text-gray-800">
+          <h1 className="text-xl font-bold text-gray-800 uppercase tracking-wider scale-y-140">
             <span className="text-orange-600">Shop</span>Ease
           </h1>
         </Link>

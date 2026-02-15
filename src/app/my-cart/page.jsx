@@ -31,7 +31,7 @@ const MyCart = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/api/addToCart/${session.user.email}`,
+          `https://shop-ease-six-xi.vercel.app/api/addToCart/${session.user.email}`,
           { cache: "no-store" }
         );
         const data = await res.json();
@@ -65,7 +65,7 @@ const MyCart = () => {
 
   const removeItem = async (id) => {
     const res = await fetch(
-      `http://localhost:3000/api/addToCart/deletItem/${id}`,
+      `https://shop-ease-six-xi.vercel.app/api/addToCart/deletItem/${id}`,
       {
         method: "DELETE",
       }

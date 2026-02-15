@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
 import LoadingComponent from "./LoadingComponent";
@@ -9,9 +10,8 @@ const CardSection = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const res = await fetch("http://localhost:3000/api/product", {
-          cache: "no-store",
-        });
+        const res = await fetch("/api/product", { cache: "no-store" });
+        if (!res.ok) throw new Error(`Failed to fetch products: ${res.status}`);
         const data = await res.json();
         setProducts(data);
       } catch (error) {
@@ -27,12 +27,14 @@ const CardSection = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-center mt-12">Featured Products</h1>
+      <h1 className="text-2xl font-bold text-center mt-12">
+        Featured Products
+      </h1>
       {loading ? (
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 my-20 mx-4">
           {Skeleton.map((data) => (
-            <div 
-            key={data}
+            <div
+              key={data}
               className=" rounded shadow-md w-60 sm:w-60 animate-pulse h-96"
               bis_skin_checked="1"
             >

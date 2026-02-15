@@ -28,7 +28,7 @@ const AllProductPage = () => {
       });
 
       const res = await fetch(
-        `http://localhost:3000/api/product/implement-func?${params.toString()}`,
+        `https://shop-ease-six-xi.vercel.app/api/product/implement-func?${params.toString()}`,
         {
           cache: "no-store",
         }

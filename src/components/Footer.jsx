@@ -2,11 +2,13 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1b4332] text-gray-300 py-12 mt-16">
+    <footer className="bg-[#10051d] text-gray-300 pt-32 pb-16 mt-16">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand */}
         <div>
-          <h2 className="text-2xl font-bold text-white mb-4"><span className="text-orange-700">Shop</span>Ease</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">
+            <span className="text-orange-700">Shop</span>Ease
+          </h2>
           <p className="text-sm leading-6">
             Your trusted destination for quality products at the best prices.
             Shop smart, live better.
@@ -78,7 +80,12 @@ const Footer = () => {
       </div>
 
       <div className="text-center text-sm text-gray-500 mt-10 border-t-2 border-gray-400 pt-6">
-        © {new Date().getFullYear()} ShopMate — All Rights Reserved.
+        {/* © {new Date().getFullYear()} ShopMate — All Rights Reserved. */}
+      </div>
+      <div>
+        <h1 className="text-[12vw] md:text-[14vw]   scale-y-120 font-black text-gray-200 leading-none tracking-tighter uppercase italic ">
+          essentialized
+        </h1>
       </div>
     </footer>
   );

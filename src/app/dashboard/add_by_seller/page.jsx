@@ -69,11 +69,14 @@ export default function AddProduct() {
       };
 
       // console.log("✅ Final Product Data:", finalData);
-      const result = await fetch("http://localhost:3000/api/product", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(finalData),
-      });
+      const result = await fetch(
+        "https://shop-ease-six-xi.vercel.app/api/product",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(finalData),
+        }
+      );
 
       alert("✅ Product added successfully!");
     } catch (error) {

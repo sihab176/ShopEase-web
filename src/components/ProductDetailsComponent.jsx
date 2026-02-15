@@ -30,13 +30,16 @@ const ProductDetailsComponent = ({ productData }) => {
 
     console.log("cart info", CartInfo);
 
-    const res = await fetch("http://localhost:3000/api/addToCart", {
-      method: "POST",
-      headers: {
-        "content-Type": "application/json",
-      },
-      body: JSON.stringify(CartInfo),
-    });
+    const res = await fetch(
+      "https://shop-ease-six-xi.vercel.app/api/addToCart",
+      {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+        },
+        body: JSON.stringify(CartInfo),
+      }
+    );
     const data = await res.json();
     // console.log("DATA============>", data);
     if (data) {
