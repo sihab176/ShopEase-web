@@ -17,10 +17,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { useRouter } from "next/navigation";
+import AnimationNavbar from "@/components/AnimationNavbar";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export default function Home() {
+
   useGSAP(() => {
     ScrollSmoother.create({
       smooth: 2,
@@ -28,26 +31,21 @@ export default function Home() {
     });
   });
 
+
   return (
     <section>
-      <Navbar />
-
+      {/* <Navbar /> */}
+      <AnimationNavbar/>
       <section id="smooth-wrapper" className=" ">
         <div id="smooth-content">
           <Hero />
           <ClassicNeutrals />
-          {/* <Banner/> */}
-
           <CardSection />
-          {/* <ExtraProduct /> */}
           <ProductGrid />
           <FellingBolder />
           <VideoPinSection />
           <FinalCTA />
           <Footer />
-          {/* <TrandingCategory /> */}
-          {/* <WhyChooseUs /> */}
-          {/* <HotCategory /> */}
         </div>
       </section>
     </section>

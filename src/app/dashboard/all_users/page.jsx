@@ -23,7 +23,7 @@ const all_users = () => {
     paymentFunc();
   }, []);
 
-  console.log("this is the payment", users);
+  // console.log("this is the payment", users);
 
   return (
     <div>

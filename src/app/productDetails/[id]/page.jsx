@@ -1,3 +1,4 @@
+import AnimationNavbar from "@/components/AnimationNavbar";
 import Navbar from "@/components/Navbar";
 import ProductDetailsComponent from "@/components/ProductDetailsComponent";
 
@@ -12,7 +13,8 @@ const ProductDetailsPage = async ({ params }) => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
+      <AnimationNavbar/>
       <ProductDetailsComponent productData={productData} />
     </div>
   );

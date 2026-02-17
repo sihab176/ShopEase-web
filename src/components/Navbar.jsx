@@ -19,7 +19,7 @@ const Navbar = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `https://shop-ease-six-xi.vercel.app/api/addToCart/${session.user.email}`,
+          `/api/addToCart/${session.user.email}`,
           { cache: "no-store" }
         );
         const data = await res.json();
@@ -101,7 +101,7 @@ const Navbar = () => {
               Contact us
             </Link>
           </li>
-          {session && (
+          {session?.user?.role === "admin" && (
             <li>
               <Link
                 href="/dashboard"
@@ -125,7 +125,7 @@ const Navbar = () => {
             height={40}
             className="object-contain"
           />
-          <h1 className="text-xl font-bold text-gray-800 uppercase tracking-wider scale-y-140">
+          <h1 className="text-xl font-bold tracking-tighter text-gray-800 uppercase  scale-y-140">
             <span className="text-orange-600">Shop</span>Ease
           </h1>
         </Link>
@@ -174,7 +174,7 @@ const Navbar = () => {
               Contact us
             </Link>
           </li>
-          {session && (
+          {session?.user?.role === "admin" && (
             <li>
               <Link
                 href="/dashboard"

@@ -14,8 +14,9 @@ const RegisterFrom = () => {
     const name = from.name.value;
     const email = from.email.value;
     const password = from.password.value;
+    const role="user"
 
-    const res = await registerUser({ name, email, password ,phoneNumber});
+    const res = await registerUser({ name, email, password ,phoneNumber,role});
 
     if (res.success) {
       toast.success("successfully sign in");

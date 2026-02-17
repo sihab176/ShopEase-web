@@ -19,8 +19,8 @@ export default function DashboardLayout({ children }) {
     <div className="flex h-screen bg-gray-100 text-black">
       
       {/* Sidebar for large screens */}
-      <aside className="hidden  lg:flex lg:flex-col w-64 bg-[#160229] shadow-lg text-white">
-        <Link href="/" className="flex  items-center space-x-2 pl-11 py-11 bg-[#a4c3b2]">
+      <aside className="hidden  lg:flex lg:flex-col w-64 bg-black shadow-lg text-white">
+        <Link href="/" className="flex  items-center space-x-2 pl-11 py-11 bg-[#ffffff]">
           <Image
             src="/shopping-bag.png"
             alt="Company Logo"
@@ -33,48 +33,48 @@ export default function DashboardLayout({ children }) {
         <nav className="flex-1 p-4 space-y-2">
           <Link
             href="/dashboard"
-            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
+            className={` p-2 rounded hover:bg-[#302823] hover:border-orange-500/90 hover:border-r-[6px] flex items-center gap-2 ${pathname === '/dashboard' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
           >
            <span><MdDashboard size={22}/></span> Dashboard
           </Link>
           <Link
             href="/dashboard/add_by_seller"
-            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/add_by_seller' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
+            className={` p-2 rounded hover:bg-[#302823] hover:border-orange-500/90 hover:border-r-[6px] flex items-center gap-2 ${pathname === '/dashboard/add_by_seller' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
           >
             <span><MdLibraryAdd size={22}/>
              </span> Add Product
           </Link>
           <Link
             href="/dashboard/allproduct_manager"
-            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/allproduct_manager' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
+            className={` p-2 rounded hover:bg-[#302823] hover:border-orange-500/90 hover:border-r-[6px] flex items-center gap-2 ${pathname === '/dashboard/allproduct_manager' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
           >
             <span><TbListDetails size={22}/>
              </span> Product manager
           </Link>
           <Link
             href="/dashboard/all_payment_manager"
-            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/all_payment_manager' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
+            className={` p-2 rounded hover:bg-[#302823] hover:border-orange-500/90 hover:border-r-[6px] flex items-center gap-2 ${pathname === '/dashboard/all_payment_manager' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
           >
             <span><FaMoneyCheckDollar  size={22}/>
              </span> All Payment
           </Link>
           <Link
             href="/dashboard/all_users"
-            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/all_users' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
+            className={` p-2 rounded hover:bg-[#302823] hover:border-orange-500/90 hover:border-r-[6px] flex items-center gap-2 ${pathname === '/dashboard/all_users' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
           >
             <span><FaUsers   size={22}/>
              </span> All Users
           </Link>
           {/* <Link
             href="/dashboard/order_manager"
-            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/order_manager' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
+            className={` p-2 rounded hover:bg-[#302823] hover:border-orange-500/90 hover:border-r-[6px] flex items-center gap-2 ${pathname === '/dashboard/order_manager' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
           >
             <span><MdOutlinePendingActions   size={22}/>
              </span> Order Manager
           </Link> */}
           <Link
             href="/dashboard/customer_reviews"
-            className={` p-2 rounded hover:bg-[#125252] flex items-center gap-2 ${pathname === '/dashboard/customer_reviews' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
+            className={` p-2 rounded hover:bg-[#302823] hover:border-orange-500/90 hover:border-r-[6px] flex items-center gap-2 ${pathname === '/dashboard/customer_reviews' ? 'border-r-4 md:border-r-[6px] bg-[#302823] border-orange-500/90' : ''}`}
           >
             <span><TbStars    size={22}/>
              </span> Customer Reviews

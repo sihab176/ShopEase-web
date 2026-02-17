@@ -6,7 +6,7 @@ const CheckoutButton = ({order ,tax}) => {
 
     const handleCheckout= async()=>{
         setLoading(true)
-        const res= await fetch("/api/checkout-session",{
+        const res= await fetch("https://shop-ease-six-xi.vercel.app/api/checkout-session",{
             method: "POST",
             headers: {"content-type": "application/json"},
             body:   JSON.stringify({order})

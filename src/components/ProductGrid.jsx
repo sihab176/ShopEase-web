@@ -16,7 +16,7 @@ const ProductGrid = () => {
       tag: "SWEATERS",
       title: "EXTURED LONG SLEEVE SWEATER",
       price: "$149.00",
-      image: "/huddy.jpg", // Replace with your image path
+      image: "https://i.ibb.co.com/jPh5D00H/huddy.jpg", // Replace with your image path
       large: false
     },
     {
@@ -24,7 +24,7 @@ const ProductGrid = () => {
       tag: "T-SHIRT",
       title: "VINTAGE WASHED T-SHIRT",
       price: "$199.00",
-      image: "/huddy2.jpg", // Replace with your image path
+      image: "https://i.ibb.co.com/C53tZnfr/huddy2.jpg", // Replace with your image path
       large: false
     }
   ];
@@ -50,7 +50,7 @@ const ProductGrid = () => {
               <div>
                 <h3 className="text-xl font-black leading-tight tracking-tighter w-40">{products[0].title}</h3>
               </div>
-              <span className="bg-[#D2B48C] px-4 py-2 rounded-xl text-sm font-bold">{products[0].price}</span>
+              <span className="bg-[#E94E1B] text-white px-4 py-2 rounded-xl text-sm font-bold">{products[0].price}</span>
             </div>
             <div className="flex bg-white p-2 rounded-full shadow-lg gap-1">
                 <button className="p-3 hover:bg-gray-100 rounded-full transition"><FaHeart size={20}/></button>

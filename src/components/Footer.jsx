@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -6,9 +8,23 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand */}
         <div>
-          <h2 className="text-2xl font-bold text-white mb-4">
+          {/* <h2 className="text-2xl font-bold text-white mb-4">
             <span className="text-orange-700">Shop</span>Ease
-          </h2>
+          </h2> */}
+          <div className="mb-4">
+            <div className="flex gap-4 ">
+              <h3 className=" bg-white/20 cursor-pointer rounded-full p-4 backdrop-blur-xl hover:bg-pink-500/30 transition-colors">
+                <FaInstagram size={18} />
+              </h3>
+              <h3 className=" bg-white/20 cursor-pointer rounded-full p-4 backdrop-blur-xl hover:bg-blue-500/30 transition-colors">
+                <FaLinkedin size={18} />
+              </h3>
+
+              <h3 className=" bg-white/20 cursor-pointer rounded-full p-4 backdrop-blur-xl hover:bg-sky-500/30 transition-colors">
+                <FaFacebookF size={18} />
+              </h3>
+            </div>
+          </div>
           <p className="text-sm leading-6">
             Your trusted destination for quality products at the best prices.
             Shop smart, live better.
@@ -83,9 +99,16 @@ const Footer = () => {
         {/* © {new Date().getFullYear()} ShopMate — All Rights Reserved. */}
       </div>
       <div>
-        <h1 className="text-[12vw] md:text-[14vw]   scale-y-120 font-black text-gray-200 leading-none tracking-tighter uppercase italic ">
+        <h1 className="outline-text text-[12vw] md:text-[14vw]   scale-y-120 font-black text-gray-200 leading-none tracking-tighter uppercase  ">
           essentialized
         </h1>
+        <style jsx>{`
+          .outline-text {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(300, 300, 300, 0.3); /* Dimmer base outline */
+            position: relative;
+          }
+        `}</style>
       </div>
     </footer>
   );

@@ -29,7 +29,7 @@ const ProductDetailsComponent = ({ productData }) => {
     };
 
     console.log("cart info", CartInfo);
-
+  //  https://shop-ease-six-xi.vercel.app
     const res = await fetch(
       "https://shop-ease-six-xi.vercel.app/api/addToCart",
       {
@@ -133,7 +133,7 @@ const ProductDetailsComponent = ({ productData }) => {
             <div className="flex items-center mt-10 gap-4">
               <button
                 onClick={() => addToCart(productData._id)}
-                className={`w-full py-3.5  text-white  transition bg-[#2d6a4f] hover:bg-[#21503b] }`}
+                className="w-full py-3.5  text-white bg-black hover:opacity-90 cursor-pointer hover:scale-105 transition-all duration-800"
               >
                 Add to Cart
               </button>
@@ -141,7 +141,7 @@ const ProductDetailsComponent = ({ productData }) => {
                 onClick={() => {
                   addToCart(productData._id);
                 }}
-                className="w-full py-3.5 bg-orange-500 text-white hover:bg-orange-600 transition"
+                className="w-full py-3.5 bg-orange-600 text-white hover:opacity-90 cursor-pointer hover:scale-105 transition-all duration-800"
               >
                 Buy now
               </button>

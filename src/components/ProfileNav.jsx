@@ -6,16 +6,16 @@ import { FaUser } from "react-icons/fa";
 export default function ProfileNav({ session }) {
   // console.log("new", session);
 
-  const handleSingOut=()=>{
-    signOut()
-    toast.success("Successfully Logout")
-  }
+  const handleSingOut = () => {
+    signOut();
+    toast.success("Successfully Logout");
+  };
 
   return (
     <DropdownMenu.Root>
       {/* Trigger */}
       <DropdownMenu.Trigger asChild>
-        <button className="inline-flex items-center rounded-full border border-gray-300 bg-white px-3 py-3 text-sm shadow-sm hover:bg-gray-50">
+        <button className="inline-flex items-center rounded-full border border-gray-300 bg-gray-100 px-3 py-3 text-sm shadow-sm hover:bg-gray-50">
           <FaUser />
         </button>
       </DropdownMenu.Trigger>
@@ -55,7 +55,7 @@ export default function ProfileNav({ session }) {
           </DropdownMenu.Label>
 
           <DropdownMenu.Item
-           onClick={()=>handleSingOut()}
+            onClick={() => handleSingOut()}
             className="cursor-pointer rounded-md px-2 py-2 text-sm text-red-600 outline-none data-[highlighted]:bg-red-50"
           >
             <span className="flex items-center">Logout</span>

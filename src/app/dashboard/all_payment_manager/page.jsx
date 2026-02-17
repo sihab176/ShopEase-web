@@ -4,11 +4,12 @@ import React, { useEffect, useState } from "react";
 const all_payment_manager = () => {
   const [payments, setPayments] = useState([]);
 
+  // todo: https://shop-ease-six-xi.vercel.app
   useEffect(() => {
     const paymentFunc = async () => {
       try {
         const res = await fetch(
-          "https://shop-ease-six-xi.vercel.app/api/save-payment",
+          "/api/save-payment",
           {
             cache: "no-store",
           }
@@ -23,7 +24,7 @@ const all_payment_manager = () => {
     paymentFunc();
   }, []);
 
-  console.log("this is the payment", payments);
+  // console.log("this is the payment", payments);
 
   return (
     <div>

@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import OrderSummary from "@/components/OrderSummary";
 import toast from "react-hot-toast";
 import Link from "next/link";
+import AnimationNavbar from "@/components/AnimationNavbar";
 
 const MyCart = () => {
   const { data: session, status } = useSession();
@@ -16,7 +17,7 @@ const MyCart = () => {
     if (products.length > 0) {
       const total = products.reduce(
         (acc, item) => acc + item.product_price * item.quantity,
-        0
+        0,
       );
       setGrandTotal(total.toFixed(2));
     } else {
@@ -30,10 +31,10 @@ const MyCart = () => {
 
     const fetchData = async () => {
       try {
-        const res = await fetch(
-          `https://shop-ease-six-xi.vercel.app/api/addToCart/${session.user.email}`,
-          { cache: "no-store" }
-        );
+        // todo: https://shop-ease-six-xi.vercel.app
+        const res = await fetch(`/api/addToCart/${session.user.email}`, {
+          cache: "no-store",
+        });
         const data = await res.json();
         setProducts(data);
       } catch (err) {
@@ -48,8 +49,8 @@ const MyCart = () => {
   const increment = (id) => {
     setProducts((prev) =>
       prev.map((item) =>
-        item._id === id ? { ...item, quantity: item.quantity + 1 } : item
-      )
+        item._id === id ? { ...item, quantity: item.quantity + 1 } : item,
+      ),
     );
   };
 
@@ -58,18 +59,15 @@ const MyCart = () => {
       prev.map((item) =>
         item._id === id && item.quantity > 1
           ? { ...item, quantity: item.quantity - 1 }
-          : item
-      )
+          : item,
+      ),
     );
   };
-
+  // todo: https://shop-ease-six-xi.vercel.app
   const removeItem = async (id) => {
-    const res = await fetch(
-      `https://shop-ease-six-xi.vercel.app/api/addToCart/deletItem/${id}`,
-      {
-        method: "DELETE",
-      }
-    );
+    const res = await fetch(`/api/addToCart/deletItem/${id}`, {
+      method: "DELETE",
+    });
     const data = await res.json();
     if (res.ok) {
       toast.success("Item removed");
@@ -83,7 +81,8 @@ const MyCart = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar />*/}
+      <AnimationNavbar />
       <div>
         {status === "loading" && (
           <p className="text-center text-4xl text-green-500">Loading cart...</p>
@@ -161,11 +160,11 @@ const MyCart = () => {
                                           ...i,
                                           quantity: Math.max(
                                             1,
-                                            Number(e.target.value)
+                                            Number(e.target.value),
                                           ),
                                         }
-                                      : i
-                                  )
+                                      : i,
+                                  ),
                                 )
                               }
                               className="w-12 text-center border-l border-r outline-none"

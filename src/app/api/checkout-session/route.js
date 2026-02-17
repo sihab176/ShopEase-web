@@ -23,7 +23,7 @@ export async function POST(req) {
             payment_method_types: ["card"],
             line_items,
             mode: "payment",
-            success_url:`${process.env.NEXTAUTH_URL}/`, //! change 
+            success_url:`${process.env.NEXTAUTH_URL}/payment_success?session_id={CHECKOUT_SESSION_ID}`, //! change 
             cancel_url: `${process.env.NEXTAUTH_URL}/checkout`
         });
         return NextResponse.json({url: session.url})
@@ -34,4 +34,4 @@ export async function POST(req) {
     
 }
 
-// `${process.env.NEXTAUTH_URL}/payment_success?session_id={CHECKOUT_SESSION_ID}`
+// `${process.env.NEXTAUTH_URL}/payment_success?session_id={CHECKOUT_SESSION_ID}` ${process.env.NEXTAUTH_URL}

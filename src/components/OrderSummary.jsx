@@ -15,39 +15,7 @@ const OrderSummary = ({ grandTotal, products }) => {
       </h2>
 
       <div className="space-y-6">
-        {/* <div>
-          <label className="text-base font-medium uppercase text-gray-600 block mb-2">
-            write Address
-          </label>
-          <input
-            type="text"
-            className="border w-full h-10 px-3"
-            placeholder="address"
-          />
-        </div>
 
-        <div>
-          <label className="text-base font-medium uppercase text-gray-600 block mb-2">
-            Phone Number
-          </label>
-          <div className="flex flex-col items-start gap-3">
-            <PhoneInput
-              country={"bd"}
-              placeholder="phone"
-              value={phoneNumber}
-              onChange={setPhoneNumber}
-              inputStyle={{
-                height: "40px",
-                width: "100%",
-
-                borderRadius: "0px",
-                border: "none",
-                background: "none",
-              }}
-              className="border focus:ring-1 focus:border-amber-600"
-            />
-          </div>
-        </div> */}
 
         <hr className="border-gray-500/30 my-5" />
 

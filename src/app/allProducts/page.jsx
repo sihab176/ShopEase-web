@@ -1,4 +1,5 @@
 "use client";
+import AnimationNavbar from "@/components/AnimationNavbar";
 import Cards from "@/components/Cards";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -26,9 +27,9 @@ const AllProductPage = () => {
         page,
         limit: 8,
       });
-
+// https://shop-ease-six-xi.vercel.app
       const res = await fetch(
-        `https://shop-ease-six-xi.vercel.app/api/product/implement-func?${params.toString()}`,
+        `/api/product/implement-func?${params.toString()}`,
         {
           cache: "no-store",
         }
@@ -46,10 +47,11 @@ const AllProductPage = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
+      <AnimationNavbar/>
 
       {/* Banner */}
-      <div className="w-full h-[250px] bg-gray-500/20 max-w-7xl mx-auto flex justify-between md:flex-row flex-col-reverse">
+      <div className="w-full h-[250px] bg-gray-500/20 max-w-7xl mx-auto flex justify-between md:flex-row flex-col-reverse mt-18">
         <div className="pl-5 pt-7">
           <h1 className="text-5xl">
             <span className="text-orange-400">E</span>xperience Shopping Like{" "}
@@ -207,6 +209,7 @@ const AllProductPage = () => {
           </button>
         </div>
       </section>
+     
 
       <Footer />
     </div>

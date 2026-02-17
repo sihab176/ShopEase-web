@@ -15,7 +15,7 @@ const VideoPinSection = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".vd-pin-section",
-          start: "5% top",
+          start: "2% top",
           end: "200% top",
           scrub: 1,
           // markers: true,
@@ -53,7 +53,7 @@ const VideoPinSection = () => {
             height={150}
             className="spin-circle spin 20s linear infinite"
           />
-          <div className="play-btn  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[6vw] flex justify-center items-center bg-[#ffffff1a] backdrop-blur-xl rounded-full">
+          <a href="https://www.youtube.com" target="_blank" className="play-btn  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[6vw] flex justify-center items-center bg-[#ffffff1a] backdrop-blur-xl rounded-full">
             <Image
               src="/play.svg"
               alt="play"
@@ -61,7 +61,7 @@ const VideoPinSection = () => {
               height={80}
               className="size-[3vw] ml-[.5vw]"
             />
-          </div>
+          </a>
         </div>
       </div>
     </section>

@@ -51,7 +51,7 @@ export default function AddProduct() {
             {
               method: "POST",
               body: form,
-            }
+            },
           );
           const data = await res.json();
           if (!data.success)
@@ -67,16 +67,13 @@ export default function AddProduct() {
         ...formData,
         image: imageUrls,
       };
-
+      // todo: https://shop-ease-six-xi.vercel.app
       // console.log("✅ Final Product Data:", finalData);
-      const result = await fetch(
-        "https://shop-ease-six-xi.vercel.app/api/product",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(finalData),
-        }
-      );
+      const result = await fetch("/api/product", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(finalData),
+      });
 
       alert("✅ Product added successfully!");
     } catch (error) {
